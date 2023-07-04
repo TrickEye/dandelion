@@ -4,18 +4,43 @@ import testModule from './components/testModule.vue';
 </script>
 
 <template>
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div> -->
-  <HelloWorld msg="Vite + Vue" />
-  <testModule />
+  <v-app>
+    <v-app-bar
+        color="indigo"
+        flat
+        app
+        :absolute="true"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-  <v-btn>test of vuetify</v-btn>
+      <v-toolbar-title>蒲公英航迹乡野实践队</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-tabs centered color="grey-darken-1">
+        <v-tab link to="/overview">县城特色</v-tab>
+        <v-tab link to="/interview">百姓访谈</v-tab>
+        <v-tab link to="/us">蒲公英们</v-tab>
+        <v-tab link to="/blogs">杂谈</v-tab>
+      </v-tabs>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+
+
+    </v-app-bar>
+
+
+    <v-main>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
+
 </template>
 
 <style scoped>
