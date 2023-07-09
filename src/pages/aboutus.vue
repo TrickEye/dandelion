@@ -10,17 +10,27 @@
 
   <v-row>
     <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <v-card min-height="200px" class="bg-blue-accent-1">
+      <v-card min-height="200px" class="bg-blue-accent-1 pa-2 text-center">
         <v-avatar size="200px">
-          <v-icon size="200px">mdi-account</v-icon>
+          <v-img cover src="./avatars/DuJinyang.jpg"></v-img>
         </v-avatar>
-        <v-card-title>王大炮</v-card-title>
-        <v-card-text>哈哈哈。王大炮是一个特别帅的男人！</v-card-text>
+        <v-card-title>杜金洋</v-card-title>
+        <v-card-text>This is Charles's castle</v-card-text>
       </v-card>
     </v-col>
 
     <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <v-card min-height="200px" class="bg-blue-accent-1">
+      <v-card min-height="200px" class="bg-blue-accent-1 pa-2 text-center">
+        <v-avatar size="200px">
+          <v-icon size="200px">mdi-account</v-icon>
+        </v-avatar>
+        <v-card-title>王大炮</v-card-title>
+        <v-card-text>吼吼吼。王大炮是一个特别帅的帅哥！</v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
+      <v-card min-height="200px" class="bg-blue-accent-1 pa-2 text-center">
         <v-avatar size="200px">
           <v-icon size="200px">mdi-account</v-icon>
         </v-avatar>

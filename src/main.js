@@ -24,12 +24,14 @@ const vuetify = createVuetify({
 // Vue router
 import * as VueRouter from 'vue-router'
 const routes = [
-    { path: '/', component: () => import('./components/testModule.vue') },
-    { path: '/overview', component: () => import('./components/overview.vue') },
-    { path: '/interview', component: () => import('./components/interview.vue') },
-    { path: '/us', component: () => import('./components/aboutus.vue') },
-    { path: '/blogs', component: () => import('./components/blogs.vue') },
+    { path: '/', component: () => import('./pages/testModule.vue') },
+    { path: '/overview', component: () => import('./pages/overview.vue') },
+    { path: '/overview/fungus', component: () => import('./overview/fungus.vue') },
+    { path: '/interview', component: () => import('./pages/interview.vue') },
+    { path: '/us', component: () => import('./pages/aboutus.vue') },
+    { path: '/blogs', component: () => import('./pages/blogs.vue') },
     { path: '/blogs/push1', component: () => import('./blogs/push1/push1.vue') },
+    { path: '/blogs/push0', component: () => import('./blogs/push0.vue') },
 ]
 
 const router = VueRouter.createRouter({
