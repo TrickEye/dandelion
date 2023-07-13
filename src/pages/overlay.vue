@@ -4,8 +4,8 @@ export default {
     methods: {
         normalRand(mean, variance) {
             let u1 = 0, u2 = 0;
-            while (u1 === 0) u1 = Math.random(); // 生成(0,1]区间内的随机数
-            while (u2 === 0) u2 = Math.random(); // 生成(0,1]区间内的随机数
+            while (u1 === 0) u1 = Math.random(); 
+            while (u2 === 0) u2 = Math.random(); 
             const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
             return z0 * Math.sqrt(variance) + mean;
         },
@@ -19,17 +19,23 @@ export default {
             setTimeout(() => {
                 dandelion.classList.remove('moveDandelionCls')
                 dandelion.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
-                window.location.assign('/#/overview/')
             }, 4000);
+
+            // 上述动画完成后一段时间页面重定向
+            setTimeout(() => {
+                    window.location.assign('/#/overview/')
+            }, 5000)
 
             var initialSpecCount = 5;
             var totSpecCount = 0;
+            const dandelionSrc = dandelion.getAttribute('src')
 
-            setInterval(() => {// 为overlay添加一些图片
+            // 为overlay添加蒲公英雪花点
+            setInterval(() => {
                 if (totSpecCount < 2000)
                 for (var i = 0; i < initialSpecCount; i++) {
                     const img1 = document.createElement('img')
-                    img1.setAttribute('src', '/src/assets/dandelion.drawio.png')
+                    img1.setAttribute('src', dandelionSrc)
                     img1.classList.add('abs-middle')
                     img1.classList.add('moveDandelionSpec')
 
@@ -43,13 +49,10 @@ export default {
                     const basey = Math.floor(base * 101) - 50
 
                     const offsetx = Math.floor(this.normalRand(0, 0.2) * 81)
-                    // const offsetx = 0
-                    // const offsety = Math.floor(this.normalRand(0, 1) * 11) - 5
                     const offsety = 0
                     
                     this.$refs.overlay.appendChild(img1)
                     img1.style.transform = `translate(calc(-50% - ${basex}vw + ${offsetx}vw), calc(-50% + ${basey}vh + ${offsety}vh))`
-                    // img1.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
                     console.log(`translate(calc(-50% - ${basex}vw + 80vw)), calc(-50% + ${basey}vh - 100vh))`)
                 }
 
@@ -146,14 +149,3 @@ export default {
   }
 }
 </style>
-<!-- 
-<style lang="scss">
-$dandelion-width: random(80) + px;
-$dandelion-height: 123px;
-
-.dandelionSpec {
-  width: $dandelion-width;
-  height: $dandelion-height;
-  $dandelion-width: random(80) + px;
-}
-</style> -->
