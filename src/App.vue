@@ -1,6 +1,4 @@
 <script setup>
-import HelloWorld from './pages/HelloWorld.vue'
-import testModule from './pages/testModule.vue';
 </script>
 
 <template>

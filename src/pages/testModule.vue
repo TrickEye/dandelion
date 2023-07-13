@@ -1,10 +1,16 @@
 <script>
+import overlay from './overlay.vue'
+
 export default {
-  name: 'testModule'
+  name: 'testModule',
+  components: {
+    overlay
+  }
 }
 </script>
 
 <template>
+    <overlay></overlay>
     <v-container>
       <h1>TITLE OF TESTMODULE</h1>
 
