@@ -22,46 +22,52 @@ export default {
             }, 4000);
 
             // 上述动画完成后一段时间页面重定向
-            setTimeout(() => {
-                    window.location.assign('/#/overview/')
-            }, 5000)
+            
 
             var initialSpecCount = 5;
             var totSpecCount = 0;
             const dandelionSrc = dandelion.getAttribute('src')
 
             // 为overlay添加蒲公英雪花点
-            setInterval(() => {
-                if (totSpecCount < 2000)
-                for (var i = 0; i < initialSpecCount; i++) {
-                    const img1 = document.createElement('img')
-                    img1.setAttribute('src', dandelionSrc)
-                    img1.classList.add('abs-middle')
-                    img1.classList.add('moveDandelionSpec')
+            const intervalId = setInterval(() => {
+                if (totSpecCount < 2000) {
+                    for (var i = 0; i < initialSpecCount; i++) {
+                        const img1 = document.createElement('img')
+                        img1.setAttribute('src', dandelionSrc)
+                        img1.classList.add('abs-middle')
+                        img1.classList.add('moveDandelionSpec')
 
-                    const size = Math.floor(Math.random() * 81) + 20;
-                    img1.setAttribute('width', `${size}px`);
-                    img1.setAttribute('height', `${size}px`);
-                    console.log(`'height', ${size}px`)
-                    
-                    const base = Math.random()
-                    const basex = Math.floor(base * 81) - 40
-                    const basey = Math.floor(base * 101) - 50
+                        const size = Math.floor(Math.random() * 81) + 20;
+                        img1.setAttribute('width', `${size}px`);
+                        img1.setAttribute('height', `${size}px`);
+                        console.log(`'height', ${size}px`)
+                        
+                        const base = Math.random()
+                        const basex = Math.floor(base * 81) - 40
+                        const basey = Math.floor(base * 101) - 50
 
-                    const offsetx = Math.floor(this.normalRand(0, 0.2) * 81)
-                    const offsety = 0
-                    
-                    this.$refs.overlay.appendChild(img1)
-                    img1.style.transform = `translate(calc(-50% - ${basex}vw + ${offsetx}vw), calc(-50% + ${basey}vh + ${offsety}vh))`
-                    console.log(`translate(calc(-50% - ${basex}vw + 80vw)), calc(-50% + ${basey}vh - 100vh))`)
-                }
+                        const offsetx = Math.floor(this.normalRand(0, 0.2) * 81)
+                        const offsety = 0
+                        
+                        this.$refs.overlay.appendChild(img1)
+                        img1.style.transform = `translate(calc(-50% - ${basex}vw + ${offsetx}vw), calc(-50% + ${basey}vh + ${offsety}vh))`
+                        console.log(`translate(calc(-50% - ${basex}vw + 80vw)), calc(-50% + ${basey}vh - 100vh))`)
+                    }
 
-                totSpecCount += initialSpecCount;
-                initialSpecCount += 5;
-                if (initialSpecCount > 100) {
-                    initialSpecCount = 50
+                    totSpecCount += initialSpecCount;
+                    initialSpecCount += 5;
+                    if (initialSpecCount > 100) {
+                        initialSpecCount = 50
+                    }
+                } else {
+                    clearInterval(intervalId)
                 }
             }, 200)
+
+            setTimeout(() => {
+                    window.location.assign('/#/overview/')
+                    clearInterval(intervalId)
+            }, 5000)
         }
     }
 }
