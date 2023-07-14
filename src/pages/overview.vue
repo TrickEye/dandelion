@@ -31,8 +31,24 @@ export default {
 </script>
 
 <template>
-  <h1 class="title">中阳县城特色</h1>
+  <h1 class="title">中阳</h1>
   <br>
+
+  <v-row>
+    <v-col cols="12">
+      <!-- <img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" class="banner"/> -->
+      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="banner">
+        
+      </v-img>
+    </v-col>
+    
+    <v-col cols="12">
+      <!-- <img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" class="banner"/> -->
+      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="banner">
+
+      </v-img>
+    </v-col>
+  </v-row>
 
   <v-row>
     <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
@@ -67,12 +83,25 @@ export default {
       </div>
     </v-col>
   </v-row>
+
+  <div style="background-color: red; height: 100vh;">
+  123321</div>
 </template>
 
 <style scoped>
 .title {
-  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
   animation: title 2s ease-in-out 0s 1 forwards;
+}
+
+.banner {
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
 }
 
 @keyframes title {
