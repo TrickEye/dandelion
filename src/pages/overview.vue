@@ -14,8 +14,6 @@ export default {
   mounted() {
     // animation
     document.querySelectorAll('.card').forEach((card,  index) => {
-      console.log(card)
-      console.log(card.classList)
       setTimeout(() => {
         card.classList.add('card-entry-animation')
       }, 1000 + 300 * index)
