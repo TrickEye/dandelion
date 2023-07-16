@@ -1,181 +1,203 @@
 <script>
+import { computed } from 'vue';
+import { useDisplay } from 'vuetify'
+
 export default {
   name: 'overview',
-  mounted() {
-    const card1 = this.$refs.card1;
-    const card2 = this.$refs.card2;
-    const card3 = this.$refs.card3;
-    const card4 = this.$refs.card4;
-    
-    setTimeout(() => {
-      card1.classList.add('card-after')
-      card1.classList.remove('card-before')
-    }, 1800);
-
-    setTimeout(() => {
-      card2.classList.add('card-after')
-      card2.classList.remove('card-before')
-    }, 2200);
-
-    setTimeout(() => {
-      card3.classList.add('card-after')
-      card3.classList.remove('card-before')
-    }, 2600);
-
-    setTimeout(() => {
-      card4.classList.add('card-after')
-      card4.classList.remove('card-before')
-    }, 3000);
+  data() {
+    return {
+      cards: [this.$refs.c1]
+    }
   },
+  mounted() {
+    // animation
+    document.querySelectorAll('.card').forEach((card,  index) => {
+      console.log(card)
+      console.log(card.classList)
+      setTimeout(() => {
+        card.classList.add('card-entry-animation')
+      }, 1000 + 300 * index)
+    });
+  },
+  created() {
+  },
+  methods: {
+    getBreakpoint() {
+      return window.innerWidth > 1280 ? '80vh' : '5em';
+    }
+  }
 }
 </script>
 
 <template>
-  <h1 class="title">中阳</h1>
-  <br>
-
-  <v-row>
-    <v-col cols="12">
-      <!-- <img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" class="banner"/> -->
-      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="banner">
-        
+  <v-row class="pic-container pa-0 ma-0">
+    <v-col cols="12" class="pa-0 ma-0">
+      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="picture">
+        <div class="border-solid-for-test">
+          <v-container>
+            <v-row class="d-flex align-center">
+              <v-col cols="12" lg="6" xl="6" class="border-solid-for-test">
+                <div class="title border-solid-for-test">
+                  <h1>中阳</h1>
+                </div>
+              </v-col>
+              <v-col cols="12" lg="6" xl="6" class="border-solid-for-test">                
+                <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center" ref="c1">
+                  <div>
+                    <v-card-text>中阳位于山西省吕梁市南部。然后有一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字。</v-card-text>
+                  </div>
+                </v-card>
+                
+                <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center">
+                  <v-card-text class="d-flex align-center border-solid-for-test">
+                    <div class="border-solid-for-test number-emphasis">1441.4平方公里</div>
+                    <div>截至2022年行政区域面积1441.4平方公里，辖5镇1乡89个行政村，很多字很多字很多字很多字很多字很多字很多字很多字很多字</div>
+                  </v-card-text>
+                </v-card>
+                
+                <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center">
+                  <v-card-text class="d-flex align-center border-solid-for-test">
+                    <div class="border-solid-for-test number-emphasis">从 2023年7月2日<br/>到 2023年7月7日</div>
+                    <div>蒲公英实践队一行人来到中阳县开展社会实践</div>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-img>
     </v-col>
     
-    <v-col cols="12">
-      <!-- <img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" class="banner"/> -->
-      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="banner">
+    <v-col cols="12" class="pa-0 ma-0">
+      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="picture">
+        <div class="border-solid-for-test">
+          <v-container>
+            <v-row>
+              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
+                <div ref="card11" class="card-before entry1">
+                  <v-card class="bg-blue-accent-1 entry1 card-after shrink-on-hover" link to="./overview/fungus">
+                    <v-card-title>产业</v-card-title>
+                  </v-card>
+                </div>
+              </v-col>
 
+              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
+                <div ref="card2" class="card-before entry2">
+                  <v-card class="bg-blue-accent-1 entry2 card-after shrink-on-hover">
+                    <v-card-title>文化特色</v-card-title>
+                  </v-card>
+                </div>
+              </v-col>
+
+              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
+                <div ref="card3" class="card-before entry3">
+                  <v-card class="bg-blue-accent-1 entry3 card-after shrink-on-hover">
+                    <v-card-title>自然景色</v-card-title>
+                  </v-card>
+                </div>
+              </v-col>
+
+              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
+                <div ref="card4" class="card-before entry4">
+                  <v-card class="bg-blue-accent-1 entry4 card-after shrink-on-hover">
+                    <v-card-title>历史</v-card-title>
+                  </v-card>
+                </div>
+              </v-col>
+            </v-row>
+
+          </v-container>
+        </div>
       </v-img>
     </v-col>
   </v-row>
-
-  <v-row>
-    <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <div ref="card1" class="card-before entry1">
-        <v-card class="bg-blue-accent-1 entry1 card-after card-hover" link to="./overview/fungus">
-          <v-card-title>产业</v-card-title>
-        </v-card>
-      </div>
-    </v-col>
-
-    <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <div ref="card2" class="card-before entry2">
-        <v-card class="bg-blue-accent-1 entry2 card-after card-hover">
-          <v-card-title>文化特色</v-card-title>
-        </v-card>
-      </div>
-    </v-col>
-
-    <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <div ref="card3" class="card-before entry3">
-        <v-card class="bg-blue-accent-1 entry3 card-after card-hover">
-          <v-card-title>自然景色</v-card-title>
-        </v-card>
-      </div>
-    </v-col>
-
-    <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-      <div ref="card4" class="card-before entry4">
-        <v-card class="bg-blue-accent-1 entry4 card-after card-hover">
-          <v-card-title>历史</v-card-title>
-        </v-card>
-      </div>
-    </v-col>
-  </v-row>
-
-  <div style="background-color: red; height: 100vh;">
-  123321</div>
 </template>
 
 <style scoped>
-.title {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  animation: title 2s ease-in-out 0s 1 forwards;
+.pic-container {
+  background-color: white;
+  position: absolute; 
+  top: 0; 
+  left: 0;
 }
 
-.banner {
+.picture {
   height: 100vh;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 0;
+  align-items: center;
 }
 
-@keyframes title {
+.title {
+  z-index: 9999;
+  animation: title-entry 2s ease-in-out 0s 1 forwards;
+
+  height: v-bind(getBreakpoint());
+  display: flex;
+  align-items: center;
+}
+
+@keyframes title-entry {
   0% {
     opacity: 0;
     font-size: 5rem;
   }
-  30% {
+  20% {
     opacity: 1;
-    font-size: 5rem
+    font-size: 5rem;
   }
-  70% {
-    font-size: 3.2rem
+  50% {
+    font-size: 5rem;
   }
   to {
-    margin-left: 0;
+    font-size: 3.2rem;
   }
 }
 
-.card-before {
-  opacity: 0;
-  height: 200px;
+.border-solid-for-test {
+  /* border: black 3px solid; */
 }
 
-.card-after {
-  opacity: 1;
-  height: 200px;
+.number-emphasis {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 900;
+  padding-right: 3rem;
+  white-space: nowrap;
 }
 
-.card-hover {
+
+.card {
+  width: 0;
+  height: 0;
+}
+
+.card-entry-animation {
+  animation: card-entry 0.8s ease-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes card-entry {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  20% {
+    height: 10vh;
+  }
+  50% {
+    height: 10vh;
+  }
+  100% {
+    width: 90%;
+    height: 10vh;
+  }
+}
+
+.shrink-on-hover {
   transition: 200ms;
 }
 
-.card-hover:hover {
+.shrink-on-hover:hover {
   transform: scale(0.95);
-}
-
-.entry1 {
-  animation: entry 0.8s ease-out;
-  animation-delay: 1s;
-}
-.entry2 {
-  animation: entry 0.8s ease-out;
-  animation-delay: 1.4s;
-}
-.entry3 {
-  animation: entry 0.8s ease-out;
-  animation-delay: 1.8s;
-}
-.entry4 {
-  animation: entry 0.8s ease-out;
-  animation-delay: 2.2s;
-}
-
-@keyframes entry {
-  0% {
-    opacity: 0;
-    width: 0;
-    height: 0px;
-  }
-  20% {
-    height: 100px;
-  }
-  50% {
-    height: 160px;
-  }
-  80% {
-    height: 190px;
-  }
-  100% {
-    opacity: 1;
-    width: 100%;
-    height: 200px;
-  }
 }
 
 </style>
