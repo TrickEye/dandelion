@@ -21,14 +21,11 @@ export default {
                 dandelion.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
             }, 4000);
 
-            // 上述动画完成后一段时间页面重定向
-            
-
+            // 为overlay添加蒲公英雪花点
             var initialSpecCount = 5;
             var totSpecCount = 0;
             const dandelionSrc = dandelion.getAttribute('src')
 
-            // 为overlay添加蒲公英雪花点
             const intervalId = setInterval(() => {
                 if (totSpecCount < 2000) {
                     for (var i = 0; i < initialSpecCount; i++) {
@@ -64,6 +61,7 @@ export default {
                 }
             }, 200)
 
+            // 上述动画完成后一段时间页面重定向
             setTimeout(() => {
                     window.location.assign('/#/overview/')
                     clearInterval(intervalId)
