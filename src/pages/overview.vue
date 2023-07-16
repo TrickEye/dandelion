@@ -1,6 +1,8 @@
+<script setup>
+import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
+</script>
+
 <script>
-import { computed } from 'vue';
-import { useDisplay } from 'vuetify'
 
 export default {
   name: 'overview',
@@ -32,7 +34,7 @@ export default {
 <template>
   <v-row class="pic-container pa-0 ma-0">
     <v-col cols="12" class="pa-0 ma-0">
-      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="picture">
+      <v-img :src="overviewPic" cover class="picture">
         <div class="border-solid-for-test">
           <v-container>
             <v-row class="d-flex align-center">
@@ -69,7 +71,7 @@ export default {
     </v-col>
     
     <v-col cols="12" class="pa-0 ma-0">
-      <v-img src="/src/assets/overview/zhongyangOverview/zhongyangOverview.drawio.png" cover class="picture">
+      <v-img :src="overviewPic" cover class="picture">
         <div class="border-solid-for-test">
           <v-container>
             <v-row>
