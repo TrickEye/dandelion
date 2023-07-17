@@ -1,11 +1,16 @@
 <script setup>
 import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
+import fungusPic from '../assets/overview/industry/fungus.drawio.png'
 </script>
 
 <script>
+import page2 from '../overview/page2.vue'
 
 export default {
   name: 'overview',
+  components: {
+    page2
+  },
   data() {
     return {
       cards: [this.$refs.c1]
@@ -16,15 +21,18 @@ export default {
     document.querySelectorAll('.card').forEach((card,  index) => {
       setTimeout(() => {
         card.classList.add('card-entry-animation')
-      }, 1000 + 300 * index)
+      }, 1700 + 300 * index)
     });
   },
   created() {
   },
   methods: {
     getBreakpoint() {
-      return window.innerWidth > 1280 ? '40vh' : '5em';
-    }
+      return window.innerWidth > 1280 ? '40vh' : 'unset';
+    },
+    getTitleEntry() {
+      return "title-entry-" + window.innerWidth > 1280 ? 'wide' : 'narrow';
+    },
   }
 }
 </script>
@@ -75,48 +83,7 @@ export default {
       </v-img>
     </v-col>
     
-    <v-col cols="12" class="pa-0 ma-0">
-      <v-img :src="overviewPic" cover class="picture">
-        <div class="border-solid-for-test">
-          <v-container>
-            <v-row>
-              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-                <div ref="card11" class="card-before entry1">
-                  <v-card class="bg-blue-accent-1 entry1 card-after shrink-on-hover" link to="./overview/fungus">
-                    <v-card-title>产业</v-card-title>
-                  </v-card>
-                </div>
-              </v-col>
-
-              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-                <div ref="card2" class="card-before entry2">
-                  <v-card class="bg-blue-accent-1 entry2 card-after shrink-on-hover">
-                    <v-card-title>文化特色</v-card-title>
-                  </v-card>
-                </div>
-              </v-col>
-
-              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-                <div ref="card3" class="card-before entry3">
-                  <v-card class="bg-blue-accent-1 entry3 card-after shrink-on-hover">
-                    <v-card-title>自然景色</v-card-title>
-                  </v-card>
-                </div>
-              </v-col>
-
-              <v-col cols="12" xl="3" lg="4" md="6" sm="12" xs="12">
-                <div ref="card4" class="card-before entry4">
-                  <v-card class="bg-blue-accent-1 entry4 card-after shrink-on-hover">
-                    <v-card-title>历史</v-card-title>
-                  </v-card>
-                </div>
-              </v-col>
-            </v-row>
-
-          </v-container>
-        </div>
-      </v-img>
-    </v-col>
+    <page2/>
   </v-row>
 </template>
 
@@ -126,6 +93,19 @@ export default {
   position: absolute; 
   top: 0; 
   left: 0;
+
+  height: 100vh;
+  overflow-y: scroll;
+
+  scroll-snap-type: block mandatory;
+}
+
+.pic-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pic-container > .v-col {
+  scroll-snap-align: start;
 }
 
 .picture {
@@ -145,23 +125,23 @@ export default {
 @keyframes title-entry {
   0% {
     opacity: 0;
-    font-size: 5rem;
+    font-size: 3em;
   }
   20% {
-    opacity: 1;
-    font-size: 5rem;
+    font-size: 3em;
   }
   50% {
-    font-size: 5rem;
+    opacity: 1;
+    font-size: 3em;
   }
   to {
-    font-size: 3.2rem;
+    font-size: 1.5em;
   }
 }
 
-.border-solid-for-test {
-  /* border: black 3px solid; */
-}
+/* .border-solid-for-test {
+  border: black 3px solid;
+} */
 
 .number-emphasis {
   font-size: 1.5rem;
@@ -216,5 +196,64 @@ export default {
 .radius {
   /* 圆角 */
   border-radius: 1rem;
+}
+
+h2 {
+  opacity: 0;
+  font-size: 5rem;
+  font-weight: 900;
+  animation: h2entry 1s ease-in-out 2s 1 forwards;
+}
+
+@keyframes h2entry {
+  from {
+    opacity: 0;
+    font-size: 5rem;
+  }
+  to {
+    opacity: 1;
+    font-size: 3rem;
+  }
+}
+
+.pic-showcase {
+  height: 50vh;
+  overflow: hidden;
+}
+
+.pic-showcase, .pic-showcase * {
+  transition: 200ms;
+}
+
+.pic-showcase .gradient {
+  background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0,0,0,0.5));
+  opacity: 0.3;
+  transition: 200ms;
+}
+
+.pic-showcase:hover .gradient {
+  opacity: 1;
+}
+
+.pic-showcase .pictitle {
+  color: black;
+  font-size: 3.75em;
+}
+
+.pic-showcase:hover .pictitle {
+  color: white;
+  font-size: 4.5em;
+}
+
+.pic-showcase .picdesc {
+  color: black;
+  font-size: 2em;
+  overflow: hidden;
+}
+
+.pic-showcase:hover .picdesc {
+  color: white;
+  font-size: 2em;
+  height: 100%;
 }
 </style>
