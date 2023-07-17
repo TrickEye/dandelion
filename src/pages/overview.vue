@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     getBreakpoint() {
-      return window.innerWidth > 1280 ? '80vh' : '5em';
+      return window.innerWidth > 1280 ? '40vh' : '5em';
     }
   }
 }
@@ -35,7 +35,7 @@ export default {
       <v-img :src="overviewPic" cover class="picture">
         <div class="border-solid-for-test">
           <v-container>
-            <v-row class="d-flex align-center">
+            <v-row class="d-flex align-center blurred radius">
               <v-col cols="12" lg="6" xl="6" class="border-solid-for-test">
                 <div class="title border-solid-for-test">
                   <h1>中阳</h1>
@@ -61,6 +61,13 @@ export default {
                     <div>蒲公英实践队一行人来到中阳县开展社会实践</div>
                   </v-card-text>
                 </v-card>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="border-solid-for-test blurred radius mt-5 d-flex justify-center">
+                <v-sheet class="bg-transparent d-flex justify-space-between" width="90%">
+                  <v-btn variant="plain" link href="http://www.sxzhongyang.gov.cn/">中阳县人民政府</v-btn>
+                </v-sheet>
               </v-col>
             </v-row>
           </v-container>
@@ -200,4 +207,14 @@ export default {
   transform: scale(0.95);
 }
 
+.blurred {
+  /* 透明黑色亚克力 */
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.radius {
+  /* 圆角 */
+  border-radius: 1rem;
+}
 </style>
