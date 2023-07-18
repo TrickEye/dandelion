@@ -7,10 +7,23 @@ import incubationPic from '../assets/overview/industry/incubation.drawio.png'
 </script>
 
 <script>
+import fungusPic from '../assets/overview/industry/fungus.drawio.png'
+import steelPic from '../assets/overview/industry/steel.drawio.png'
+import vinegarPic from '../assets/overview/industry/vinegar.drawio.png'
+import incubationPic from '../assets/overview/industry/incubation.drawio.png'
+
 export default {
     name: 'page2',
     data() {
         return {
+            items: [
+              {index: 0, title: '中阳黑木耳', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: fungusPic},
+              {index: 1, title: '中钢', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: steelPic},
+              {index: 2, title: '醋', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: vinegarPic},
+              {index: 3, title: '孵化园', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: incubationPic},
+            ],
+
+
             selectedEntry: 0,
             p2: document.querySelector('#p2'),
             cards: document.querySelectorAll('.industry-list .v-card'),
@@ -93,133 +106,40 @@ export default {
               <v-col cols="4" class="wide-only">
                 <v-container>
                   <v-row class="industry-list border-solid-for-test">
-                    <v-col cols="12">
-                      <div class="">
-                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(0)">
-                          <v-card-title class="w-100 text-center">中阳黑木耳</v-card-title>
+                    <v-col cols="12" v-for="item in items">
+                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(item.index)">
+                          <v-card-title class="w-100 text-center">{{ item.title }}</v-card-title>
                         </v-card>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12">
-                      <div class="">
-                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(1)">
-                          <v-card-title class="w-100 text-center">中钢</v-card-title>
-                        </v-card>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12">
-                      <div class="">
-                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(2)">
-                          <v-card-title class="w-100 text-center">柏洼古井手工醋</v-card-title>
-                        </v-card>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12">
-                      <div class="">
-                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(3)">
-                          <v-card-title class="w-100 text-center">孵化器</v-card-title>
-                        </v-card>
-                      </div>
                     </v-col>
                   </v-row>
                 </v-container>
               </v-col>
 
               <v-col cols="8" class="pa-10 wide-only">
-                <div class="border-solid-for-test pic-showcase">
-                  <v-img :src="fungusPic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">中阳黑木耳</div>
+                <div class="border-solid-for-test pic-showcase" v-for="item in items">
+                  <v-img :src="item.pic" cover class="align-end h-100 radius">
+                    <div class="pictitle font-weight-black pa-5">{{ item.title }}</div>
                     <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                  </v-img>
-                </div>
-                
-                <div class="border-solid-for-test pic-showcase">
-                  <v-img :src="steelPic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">中钢</div>
-                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                  </v-img>
-                </div>
-                
-                <div class="border-solid-for-test pic-showcase">
-                  <v-img :src="vinegarPic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">醋</div>
-                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                  </v-img>
-                </div>
-                
-                <div class="border-solid-for-test pic-showcase">
-                  <v-img :src="incubationPic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">孵化器</div>
-                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                    <div class="picdesc border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
                   </v-img>
                 </div>
               </v-col>
 
               <v-col cols="12" class="narrow-only">
-                <v-expansion-panels max="1" variant="popout">
-                  <v-expansion-panel class="before-anim">
+                <v-expansion-panels :max="1" variant="popout">
+                  <v-expansion-panel class="before-anim" v-for="item in items">
                     <v-expansion-panel-title>
-                      中阳黑木耳
+                      {{ item.title }}
                     </v-expansion-panel-title>
                     <v-expansion-panel-text>
                       <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="fungusPic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">中阳黑木耳</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                        <v-img :src="item.pic" cover class="align-end h-100 radius">
+                          <div class="text-h2 font-weight-black pa-5">{{ item.title }}</div>
+                          <div class="text-h5 border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
                         </v-img>
                       </v-sheet>
                     </v-expansion-panel-text>
                   </v-expansion-panel>
-
-                  <v-expansion-panel class="before-anim">
-                    <v-expansion-panel-title>
-                      中钢
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="steelPic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">中钢</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                        </v-img>
-                      </v-sheet>
-                    </v-expansion-panel-text>
-                  </v-expansion-panel>
-
-                  <v-expansion-panel class="before-anim">
-                    <v-expansion-panel-title>
-                      醋
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="vinegarPic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">醋</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                        </v-img>
-                      </v-sheet>
-                    </v-expansion-panel-text>
-                  </v-expansion-panel>
-
-                  <v-expansion-panel class="before-anim">
-                    <v-expansion-panel-title>
-                      孵化器
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="incubationPic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">孵化器</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
-                        </v-img>
-                      </v-sheet>
-                    </v-expansion-panel-text>
-                  </v-expansion-panel>
-
                 </v-expansion-panels>
               </v-col>
             </v-row>
