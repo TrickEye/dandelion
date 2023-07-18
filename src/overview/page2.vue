@@ -1,6 +1,9 @@
 <script setup>
 import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
 import fungusPic from '../assets/overview/industry/fungus.drawio.png'
+import steelPic from '../assets/overview/industry/steel.drawio.png'
+import vinegarPic from '../assets/overview/industry/vinegar.drawio.png'
+import incubationPic from '../assets/overview/industry/incubation.drawio.png'
 </script>
 
 <script>
@@ -11,6 +14,7 @@ export default {
             selectedEntry: 0,
             p2: document.querySelector('#p2'),
             cards: document.querySelectorAll('.industry-list .v-card'),
+            picShowcases: document.querySelectorAll('.pic-showcase'),
         }
     },
     methods: {
@@ -25,10 +29,18 @@ export default {
                 }, 300 * index)
             })
 
+            document.querySelectorAll('.v-expansion-panels').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('anim')
+                }, 300 * index)
+            })
+
             setTimeout(() => {
                 this.selectedEntry = 0;
                 this.cards = document.querySelectorAll('.industry-list .v-card');
                 this.cards[this.selectedEntry].classList.add('selected');
+                this.picShowcases = document.querySelectorAll('.pic-showcase');
+                this.picShowcases[this.selectedEntry].classList.add('selected');
             }, 3000);
         },
         visible() {
@@ -48,8 +60,10 @@ export default {
                 return;
             } else {
                 this.cards[this.selectedEntry].classList.remove('selected');
+                this.picShowcases[this.selectedEntry].classList.remove('selected');
                 this.selectedEntry = selected;
                 this.cards[this.selectedEntry].classList.add('selected');
+                this.picShowcases[this.selectedEntry].classList.add('selected');
             }
         }
     },
@@ -68,45 +82,45 @@ export default {
     <v-col cols="12" class="pa-0 ma-0">
       <v-img :src="overviewPic" cover class="picture">
         <div class="border-solid-for-test">
-          <v-container>
-            <v-row class="d-flex align-center blurred radius">
+          <v-container class="d-flex align-center blurred radius">
+            <v-row>
               <v-col cols="12">
                 <div class="border-solid-for-test pr-10 pt-6">
                   <h2 class="text-end" id="p2">产业</h2>
                 </div>
               </v-col>
 
-              <v-col cols="4">
+              <v-col cols="4" class="wide-only">
                 <v-container>
                   <v-row class="industry-list border-solid-for-test">
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(0)">
-                          <v-card-title>中阳黑木耳</v-card-title>
+                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(0)">
+                          <v-card-title class="w-100 text-center">中阳黑木耳</v-card-title>
                         </v-card>
                       </div>
                     </v-col>
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(1)">
-                          <v-card-title>中钢</v-card-title>
+                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(1)">
+                          <v-card-title class="w-100 text-center">中钢</v-card-title>
                         </v-card>
                       </div>
                     </v-col>
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(2)">
-                          <v-card-title>柏洼古井手工醋</v-card-title>
+                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(2)">
+                          <v-card-title class="w-100 text-center">柏洼古井手工醋</v-card-title>
                         </v-card>
                       </div>
                     </v-col>
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(3)">
-                          <v-card-title>孵化器</v-card-title>
+                        <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(3)">
+                          <v-card-title class="w-100 text-center">孵化器</v-card-title>
                         </v-card>
                       </div>
                     </v-col>
@@ -114,7 +128,7 @@ export default {
                 </v-container>
               </v-col>
 
-              <v-col cols="8">
+              <v-col cols="8" class="pa-10 wide-only">
                 <div class="border-solid-for-test pic-showcase">
                   <v-img :src="fungusPic" cover class="align-end h-100 radius">
                     <div class="pictitle font-weight-black pa-5">中阳黑木耳</div>
@@ -122,9 +136,92 @@ export default {
                     <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
                   </v-img>
                 </div>
+                
+                <div class="border-solid-for-test pic-showcase">
+                  <v-img :src="steelPic" cover class="align-end h-100 radius">
+                    <div class="pictitle font-weight-black pa-5">中钢</div>
+                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
+                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                  </v-img>
+                </div>
+                
+                <div class="border-solid-for-test pic-showcase">
+                  <v-img :src="vinegarPic" cover class="align-end h-100 radius">
+                    <div class="pictitle font-weight-black pa-5">醋</div>
+                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
+                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                  </v-img>
+                </div>
+                
+                <div class="border-solid-for-test pic-showcase">
+                  <v-img :src="incubationPic" cover class="align-end h-100 radius">
+                    <div class="pictitle font-weight-black pa-5">孵化器</div>
+                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
+                    <div class="picdesc border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                  </v-img>
+                </div>
               </v-col>
 
-              
+              <v-col cols="12" class="narrow-only">
+                <v-expansion-panels max="1" variant="popout">
+                  <v-expansion-panel class="before-anim">
+                    <v-expansion-panel-title>
+                      中阳黑木耳
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
+                        <v-img :src="fungusPic" cover class="align-end h-100 radius">
+                          <div class="text-h2 font-weight-black pa-5">中阳黑木耳</div>
+                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                        </v-img>
+                      </v-sheet>
+                    </v-expansion-panel-text>
+                  </v-expansion-panel>
+
+                  <v-expansion-panel class="before-anim">
+                    <v-expansion-panel-title>
+                      中钢
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
+                        <v-img :src="steelPic" cover class="align-end h-100 radius">
+                          <div class="text-h2 font-weight-black pa-5">中钢</div>
+                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                        </v-img>
+                      </v-sheet>
+                    </v-expansion-panel-text>
+                  </v-expansion-panel>
+
+                  <v-expansion-panel class="before-anim">
+                    <v-expansion-panel-title>
+                      醋
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
+                        <v-img :src="vinegarPic" cover class="align-end h-100 radius">
+                          <div class="text-h2 font-weight-black pa-5">醋</div>
+                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                        </v-img>
+                      </v-sheet>
+                    </v-expansion-panel-text>
+                  </v-expansion-panel>
+
+                  <v-expansion-panel class="before-anim">
+                    <v-expansion-panel-title>
+                      孵化器
+                    </v-expansion-panel-title>
+                    <v-expansion-panel-text>
+                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
+                        <v-img :src="incubationPic" cover class="align-end h-100 radius">
+                          <div class="text-h2 font-weight-black pa-5">孵化器</div>
+                          <div class="text-h5 border-solid-for-test px-5 pb-5">介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈</div>
+                        </v-img>
+                      </v-sheet>
+                    </v-expansion-panel-text>
+                  </v-expansion-panel>
+
+                </v-expansion-panels>
+              </v-col>
             </v-row>
 
           </v-container>
@@ -184,6 +281,8 @@ export default {
   /* 透明黑色亚克力 */
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
+  /* 阴影 */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .radius {
@@ -213,13 +312,18 @@ h2.anim {
 }
 
 .pic-showcase {
-  height: 50vh;
+  height: 0;
   overflow: hidden;
 }
 
 .pic-showcase, .pic-showcase * {
-  transition: 200ms;
+  transition-duration: 400ms;
 }
+
+.pic-showcase.selected {
+  height: 50vh;
+}
+
 
 .pic-showcase .gradient {
   background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0,0,0,0.5));
@@ -253,7 +357,36 @@ h2.anim {
   height: 100%;
 }
 
-.selected {
+.industry-list .selected {
     transform: scale(0.90);
+}
+
+.industry-list .v-card-title {
+  font-size: 1.5em;
+  font-weight: normal;
+  transition-duration: 200ms;
+}
+
+.selected .v-card-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.v-expansion-panels {
+  opacity: 0;
+}
+
+.v-expansion-panels.anim {
+  animation: expPanelsEntry 1s ease-in-out 1 forwards;
+  animation-delay: 1s;
+}
+
+@keyframes expPanelsEntry {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

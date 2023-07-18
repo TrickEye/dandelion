@@ -23,6 +23,19 @@ export default {
         card.classList.add('card-entry-animation')
       }, 1700 + 300 * index)
     });
+
+    // handle some components that shows wide only
+    if (window.innerWidth < 1280) {
+      document.querySelectorAll('.wide-only').forEach((element) => {
+        console.log(element)
+        element.classList.add('d-none')
+      });
+    } else {
+      document.querySelectorAll('.narrow-only').forEach((element) => {
+        console.log(element)
+        element.classList.add('d-none')
+      });
+    }
   },
   created() {
   },
@@ -191,6 +204,8 @@ export default {
   /* 透明黑色亚克力 */
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
+  /* 阴影 */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .radius {
