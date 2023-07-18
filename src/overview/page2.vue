@@ -8,8 +8,9 @@ export default {
     name: 'page2',
     data() {
         return {
-            selectedEntry: 1,
+            selectedEntry: 0,
             p2: document.querySelector('#p2'),
+            cards: document.querySelectorAll('.industry-list .v-card'),
         }
     },
     methods: {
@@ -23,6 +24,12 @@ export default {
                     col.classList.add('card-entry-animation')
                 }, 300 * index)
             })
+
+            setTimeout(() => {
+                this.selectedEntry = 0;
+                this.cards = document.querySelectorAll('.industry-list .v-card');
+                this.cards[this.selectedEntry].classList.add('selected');
+            }, 3000);
         },
         visible() {
             const rect = p2.getBoundingClientRect();
@@ -35,6 +42,16 @@ export default {
         getTitleEntry() {
         return "title-entry-" + window.innerWidth > 1280 ? 'wide' : 'narrow';
         },
+        switchChecked(selected) {
+            console.log('switchChecked is called', selected)
+            if (selected === this.selectedEntry) {
+                return;
+            } else {
+                this.cards[this.selectedEntry].classList.remove('selected');
+                this.selectedEntry = selected;
+                this.cards[this.selectedEntry].classList.add('selected');
+            }
+        }
     },
     mounted() {
         const timeout = setInterval(() => {
@@ -64,7 +81,7 @@ export default {
                   <v-row class="industry-list border-solid-for-test">
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" link to="./overview/fungus">
+                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(0)">
                           <v-card-title>中阳黑木耳</v-card-title>
                         </v-card>
                       </div>
@@ -72,7 +89,7 @@ export default {
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover">
+                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(1)">
                           <v-card-title>中钢</v-card-title>
                         </v-card>
                       </div>
@@ -80,7 +97,7 @@ export default {
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover">
+                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(2)">
                           <v-card-title>柏洼古井手工醋</v-card-title>
                         </v-card>
                       </div>
@@ -88,7 +105,7 @@ export default {
 
                     <v-col cols="12">
                       <div class="">
-                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover">
+                        <v-card class="bg-blue-accent-1 mx-auto h0w0 shrink-on-hover" @click="() => switchChecked(3)">
                           <v-card-title>孵化器</v-card-title>
                         </v-card>
                       </div>
@@ -117,68 +134,15 @@ export default {
 </template>
 
 <style scoped>
-.pic-container {
-  background-color: white;
-  position: absolute; 
-  top: 0; 
-  left: 0;
-
-  height: 100vh;
-  overflow-y: scroll;
-
-  scroll-snap-type: block mandatory;
-}
-
-.pic-container::-webkit-scrollbar {
-  display: none;
-}
-
-.pic-container > .v-col {
-  scroll-snap-align: start;
-}
 
 .picture {
   height: 100vh;
   align-items: center;
 }
 
-.title {
-  z-index: 9999;
-  animation: title-entry 2s ease-in-out 0s 1 forwards;
-
-  height: v-bind(getBreakpoint());
-  display: flex;
-  align-items: center;
-}
-
-@keyframes title-entry {
-  0% {
-    opacity: 0;
-    font-size: 3em;
-  }
-  20% {
-    font-size: 3em;
-  }
-  50% {
-    opacity: 1;
-    font-size: 3em;
-  }
-  to {
-    font-size: 1.5em;
-  }
-}
-
 /* .border-solid-for-test {
   border: black 3px solid;
 } */
-
-.number-emphasis {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 900;
-  padding-right: 3rem;
-  white-space: nowrap;
-}
 
 
 .h0w0 {
@@ -287,5 +251,9 @@ h2.anim {
   color: white;
   font-size: 2em;
   height: 100%;
+}
+
+.selected {
+    transform: scale(0.90);
 }
 </style>
