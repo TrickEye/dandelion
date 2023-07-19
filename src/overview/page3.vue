@@ -9,7 +9,7 @@ import vinegarPic from '../assets/overview/industry/vinegar.drawio.png'
 import incubationPic from '../assets/overview/industry/incubation.drawio.png'
 
 export default {
-    name: 'page2',
+    name: 'page3',
     data() {
         return {
             items: [
@@ -21,18 +21,18 @@ export default {
 
 
             selectedEntry: 0,
-            p2: document.querySelector('#p2'),
-            cards: document.querySelectorAll('.industry-list .v-card'),
+            p3: document.querySelector('#p3'),
+            cards: document.querySelectorAll('.culture-list .v-card'),
             picShowcases: document.querySelectorAll('.pic-showcase'),
         }
     },
     methods: {
         playEntryAnim() {
-            document.querySelectorAll('#p2').forEach((col) => {
+            document.querySelectorAll('#p3').forEach((col) => {
                 col.classList.add('anim')
             })
 
-            document.querySelectorAll('.industry-list .v-card').forEach((col, index) => {
+            document.querySelectorAll('.culture-list .v-card').forEach((col, index) => {
                 setTimeout(() => {
                     col.classList.add('card-entry-animation')
                 }, 300 * index)
@@ -46,14 +46,14 @@ export default {
 
             setTimeout(() => {
                 this.selectedEntry = 0;
-                this.cards = document.querySelectorAll('.industry-list .v-card');
+                this.cards = document.querySelectorAll('.culture-list .v-card');
                 this.cards[this.selectedEntry].classList.add('selected');
                 this.picShowcases = document.querySelectorAll('.pic-showcase');
                 this.picShowcases[this.selectedEntry].classList.add('selected');
             }, 3000);
         },
         visible() {
-            const rect = p2.getBoundingClientRect(); // I actually don't know why here `this.p2` does not work, while `p2` works, maybe because in vue, p2 can be used to refer the element#p2.
+            const rect = p3.getBoundingClientRect(); // I actually don't know why here `this.p3` does not work, while `p3` works
             return rect.top < window.innerHeight && rect.bottom >= 0;
         },
         getBreakpoint() {
@@ -94,13 +94,13 @@ export default {
             <v-row>
               <v-col cols="12">
                 <div class="border-solid-for-test pr-10 pt-6">
-                  <h2 class="text-end" id="p2">产业</h2>
+                  <h2 class="text-end" id="p3">文化</h2>
                 </div>
               </v-col>
 
               <v-col cols="4" class="wide-only">
                 <v-container>
-                  <v-row class="industry-list border-solid-for-test">
+                  <v-row class="culture-list border-solid-for-test">
                     <v-col cols="12" v-for="item in items">
                         <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(item.index)">
                           <v-card-title class="w-100 text-center">{{ item.title }}</v-card-title>
@@ -142,8 +142,8 @@ export default {
           <v-row>
             <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-grey-darken-1">
               <v-icon>mdi-circle-outline</v-icon>
-              <v-icon>mdi-circle-double</v-icon>
               <v-icon>mdi-circle-outline</v-icon>
+              <v-icon>mdi-circle-double</v-icon>
               <v-icon>mdi-circle-outline</v-icon>
             </v-card-text></v-col>
           </v-row>
@@ -279,11 +279,11 @@ h2.anim {
   height: 100%;
 }
 
-.industry-list .selected {
+.culture-list .selected {
     transform: scale(0.90);
 }
 
-.industry-list .v-card-title {
+.culture-list .v-card-title {
   font-size: 1.5em;
   font-weight: normal;
   transition-duration: 200ms;

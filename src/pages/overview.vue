@@ -5,11 +5,12 @@ import fungusPic from '../assets/overview/industry/fungus.drawio.png'
 
 <script>
 import page2 from '../overview/page2.vue'
+import page3 from '../overview/page3.vue'
 
 export default {
   name: 'overview',
   components: {
-    page2
+    page2, page3
   },
   data() {
     return {
@@ -91,12 +92,22 @@ export default {
                 </v-sheet>
               </v-col>
             </v-row>
+            <v-row>
+              <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-grey-darken-1">
+                <v-icon>mdi-circle-double</v-icon>
+                <v-icon>mdi-circle-outline</v-icon>
+                <v-icon>mdi-circle-outline</v-icon>
+                <v-icon>mdi-circle-outline</v-icon>
+              </v-card-text></v-col>
+            </v-row>
           </v-container>
         </div>
       </v-img>
     </v-col>
     
     <page2/>
+
+    <page3/>
   </v-row>
 </template>
 
@@ -130,7 +141,7 @@ export default {
   z-index: 9999;
   animation: title-entry 2s ease-in-out 0s 1 forwards;
 
-  height: v-bind(getBreakpoint());
+  height: v-bind('getBreakpoint()');
   display: flex;
   align-items: center;
 }
