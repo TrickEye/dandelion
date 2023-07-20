@@ -23,7 +23,7 @@ export default {
             selectedEntry: 0,
             p3: document.querySelector('#p3'),
             cards: document.querySelectorAll('.culture-list .v-card'),
-            picShowcases: document.querySelectorAll('.pic-showcase'),
+            picShowcases: document.querySelectorAll('.culture .pic-showcase'),
         }
     },
     methods: {
@@ -38,7 +38,7 @@ export default {
                 }, 300 * index)
             })
 
-            document.querySelectorAll('.v-expansion-panels').forEach((el, index) => {
+            document.querySelectorAll('.culture .v-expansion-panels').forEach((el, index) => {
                 setTimeout(() => {
                     el.classList.add('anim')
                 }, 300 * index)
@@ -48,7 +48,7 @@ export default {
                 this.selectedEntry = 0;
                 this.cards = document.querySelectorAll('.culture-list .v-card');
                 this.cards[this.selectedEntry].classList.add('selected');
-                this.picShowcases = document.querySelectorAll('.pic-showcase');
+                this.picShowcases = document.querySelectorAll('.culture .pic-showcase');
                 this.picShowcases[this.selectedEntry].classList.add('selected');
             }, 3000);
         },
@@ -87,9 +87,9 @@ export default {
 </script>
 
 <template>
-    <v-col cols="12" class="pa-0 ma-0">
+    <v-col cols="12" class="pa-0 ma-0 culture">
       <v-img :src="overviewPic" cover class="picture">
-        <div class="border-solid-for-test">
+        <div class="border-solid-for-test culture">
           <v-container class="d-flex align-center blurred radius">
             <v-row>
               <v-col cols="12">
