@@ -86,11 +86,16 @@ export default {
 </script>
 
 <template>
-    <div class="overlay overflow-hidden" ref="overlay">
+    <div class="overlay overflow-hidden align-center h-100 d-flex" ref="overlay">
         <img class="abs-middle" id="buaa" :src="beijingPic" alt="">
         <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">\
         <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
 <!--        <v-btn class="abs-middle" @click="moveDandelion">button</v-btn>-->
+        <v-container class="d-flex align-center">
+          <v-row> <v-col class="blurred radius text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
+                蒲公英要出发了，请选择一个目的地
+          </v-col> </v-row>
+        </v-container>
     </div>
 
 </template>
@@ -157,6 +162,39 @@ export default {
     transform: translate(calc(-50% - 25vw), calc(-50% + 20vh))
   }
 }
+
+.blurred {
+  /* 透明黑色亚克力 */
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  /* 阴影 */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.radius {
+  /* 圆角 */
+  border-radius: 1rem;
+}
+
+.tip {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  font-size: 1.5rem;
+  font-weight: 500;
+  animation: tip-entrance 1s cubic-bezier(0,0,0,1) 1 2s forwards;
+}
+
+@keyframes tip-entrance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 </style>
 
 <style>
