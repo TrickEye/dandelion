@@ -30,10 +30,10 @@ export default {
             dandelion.classList.add('moveDandelionCls')
             
             // 在动画完成后将dandelion移动到zhongyang的位置
-            setTimeout(() => {
-                dandelion.classList.remove('moveDandelionCls')
-                dandelion.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
-            }, 4000);
+            // setTimeout(() => {
+            //     dandelion.classList.remove('moveDandelionCls')
+            //     dandelion.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
+            // }, 4000);
 
             // 为overlay添加蒲公英雪花点
             var initialSpecCount = 5;
