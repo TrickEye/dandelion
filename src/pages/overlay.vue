@@ -1,4 +1,18 @@
+<script setup>
+import beijingPic from '../assets/temp/beijing.png'
+import backgroundPic from '../assets/temp/bg.png'
+import dandelionPic from '../assets/temp/dandelion.png'
+import zhongYangPic from '../assets/temp/zhongyang.png'
+import teamlogoPic from '../assets/temp/teamlogo.png'
+</script>
+
 <script>
+import beijingPic from '../assets/temp/beijing.png'
+import backgroundPic from '../assets/temp/bg.png'
+import dandelionPic from '../assets/temp/dandelion.png'
+import zhongYangPic from '../assets/temp/zhongyang.png'
+import teamlogoPic from '../assets/temp/teamlogo.png'
+
 export default {
     name: 'overlay',
     methods: {
@@ -24,13 +38,13 @@ export default {
             // 为overlay添加蒲公英雪花点
             var initialSpecCount = 5;
             var totSpecCount = 0;
-            const dandelionSrc = dandelion.getAttribute('src')
+            // const dandelionSrc = dandelion.getAttribute('src')
 
             const intervalId = setInterval(() => {
                 if (totSpecCount < 2000) {
                     for (var i = 0; i < initialSpecCount; i++) {
                         const img1 = document.createElement('img')
-                        img1.setAttribute('src', dandelionSrc)
+                        img1.setAttribute('src', dandelionPic)
                         img1.classList.add('abs-middle')
                         img1.classList.add('moveDandelionSpec')
 
@@ -73,10 +87,10 @@ export default {
 
 <template>
     <div class="overlay overflow-hidden" ref="overlay">
-        <img class="abs-middle" id="buaa" src="../assets/beijingWithBuaaLogo.drawio.png" alt="">
-        <img class="abs-middle" id="dandelion" ref="dandelion" src="../assets/dandelion.drawio.png" alt="">
-        <img class="abs-middle" id="zhongyang" src="../assets/zhongyang.drawio.png" alt="">
-        <v-btn class="abs-middle" @click="moveDandelion">button</v-btn>
+        <img class="abs-middle" id="buaa" :src="beijingPic" alt="">
+        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">\
+        <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
+<!--        <v-btn class="abs-middle" @click="moveDandelion">button</v-btn>-->
     </div>
 
 </template>
@@ -90,29 +104,45 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: v-bind('"url(" + backgroundPic + ")"');
   background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
-  z-index: 9999; /* 确保在页面上方 */
+  z-index: 0; /* 确保在页面上方 */
 }
 
 #buaa {
-    transform: translate(calc(-50% + 40vw), calc(-50% - 40vh));
-    width: 100px;
-    height: 100px;
+    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+    width: 400px;
+    height: 400px;
     z-index: 8000;
 }
 
+#dandelion-box {
+    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+    width: 100px;
+    height: 100px;
+    z-index: 8999;
+    //background: #0d47a1;
+}
+
 #dandelion {
-    transform: translate(calc(-50% + 40vw), calc(-50% - 40vh));
-    width: 50px;
-    height: 50px;
+    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+    backdrop-filter: blur(2px);
+    width: 150px;
+    height: 150px;
     z-index: 9000;
 }
 
 #zhongyang {
-    transform: translate(calc(-50% - 40vw), calc(-50% + 40vh));
-    width: 200px;
-    height: 200px;
+    transform: translate(calc(-50% - 25vw), calc(-50% + 20vh));
+    width: 600px;
+    height: 600px;
     z-index: 8000;
+    transition-duration: 200ms;
+}
+
+#zhongyang:hover {
+    cursor: pointer;
+    transform: translate(calc(-50% - 25vw), calc(-50% + 20vh)) scale(1.1);
 }
 
 .moveDandelionCls {
@@ -121,10 +151,10 @@ export default {
 
 @keyframes moveDandelionAnim {
   from {
-    transform: translate(calc(-50% + 40vw), calc(-50% - 40vh))
+    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh))
   }
   to {
-    transform: translate(calc(-50% - 40vw), calc(-50% + 40vh))
+    transform: translate(calc(-50% - 25vw), calc(-50% + 20vh))
   }
 }
 </style>
@@ -148,8 +178,8 @@ export default {
   }
   to {
     opacity: 100%;
-    margin-left: 0px;
-    margin-top: 0px;  
+    margin-left: 0;
+    margin-top: 0;
   }
 }
 </style>
