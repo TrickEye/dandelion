@@ -24,16 +24,12 @@ export default {
             return z0 * Math.sqrt(variance) + mean;
         },
         moveDandelion() {
-            const dandelion = this.$refs.dandelion;
+            // const dandelion = this.$refs.dandelion;
 
             // 设置CSS动画
-            dandelion.classList.add('moveDandelionCls')
-            
-            // 在动画完成后将dandelion移动到zhongyang的位置
-            // setTimeout(() => {
-            //     dandelion.classList.remove('moveDandelionCls')
-            //     dandelion.style.transform = 'translate(calc(-50% - 40vw), calc(-50% + 40vh))'
-            // }, 4000);
+            // dandelion.classList.add('moveDandelionCls')
+            document.querySelector('.dandelion-x').classList.add('selected')
+            document.querySelector('.dandelion-y').classList.add('selected')
 
             // 为overlay添加蒲公英雪花点
             var initialSpecCount = 5;
@@ -88,9 +84,11 @@ export default {
 <template>
     <div class="overlay overflow-hidden align-center h-100 d-flex" ref="overlay">
         <img class="abs-middle" id="buaa" :src="beijingPic" alt="">
-        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">\
+        <span class="abs-middle dandelion-x">
+          <v-img class="dandelion-y" :src="teamlogoPic"></v-img>
+        </span>
+<!--        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">-->
         <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
-<!--        <v-btn class="abs-middle" @click="moveDandelion">button</v-btn>-->
         <v-container class="d-flex align-center">
           <v-row> <v-col class="blurred radius text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
                 蒲公英要出发了，请选择一个目的地
@@ -135,6 +133,8 @@ export default {
     width: 150px;
     height: 150px;
     z-index: 9000;
+    //filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
 }
 
 #zhongyang {
@@ -142,6 +142,7 @@ export default {
     width: 600px;
     height: 600px;
     z-index: 8000;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
     transition-duration: 200ms;
 }
 
@@ -202,6 +203,29 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;  
+}
+
+.dandelion-x {
+    transform: translateX(calc(-50% + 30vw)) translateY(-50%);
+    z-index: 8999;
+    transition: transform 3s linear;
+}
+
+.dandelion-y {
+    width: 150px;
+    height: 150px;
+    transform: translateY(-20vh);
+    transition: transform 3s cubic-bezier(1,0,1,1);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+    backdrop-filter: blur(2px);
+}
+
+.dandelion-x.selected {
+  transform: translateX(calc(-50% - 25vw)) translateY(-50%);
+}
+
+.dandelion-y.selected {
+  transform: translateY(20vh);
 }
 
 .moveDandelionSpec {
