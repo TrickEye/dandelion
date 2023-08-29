@@ -14,87 +14,87 @@ import zhongYangPic from '../assets/temp/zhongyang.png'
 import teamlogoPic from '../assets/temp/teamlogo.png'
 
 export default {
-    name: 'overlay',
-    methods: {
-        normalRand(mean, variance) {
-            let u1 = 0, u2 = 0;
-            while (u1 === 0) u1 = Math.random(); 
-            while (u2 === 0) u2 = Math.random(); 
-            const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
-            return z0 * Math.sqrt(variance) + mean;
-        },
-        moveDandelion() {
-            // const dandelion = this.$refs.dandelion;
+  name: 'overlay',
+  methods: {
+    normalRand(mean, variance) {
+      let u1 = 0, u2 = 0;
+      while (u1 === 0) u1 = Math.random();
+      while (u2 === 0) u2 = Math.random();
+      const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+      return z0 * Math.sqrt(variance) + mean;
+    },
+    moveDandelion() {
+      // const dandelion = this.$refs.dandelion;
 
-            // 设置CSS动画
-            // dandelion.classList.add('moveDandelionCls')
-            document.querySelector('.dandelion-x').classList.add('selected')
-            document.querySelector('.dandelion-y').classList.add('selected')
+      // 设置CSS动画
+      // dandelion.classList.add('moveDandelionCls')
+      document.querySelector('.dandelion-x').classList.add('selected')
+      document.querySelector('.dandelion-y').classList.add('selected')
 
-            // 为overlay添加蒲公英雪花点
-            var initialSpecCount = 5;
-            var totSpecCount = 0;
-            // const dandelionSrc = dandelion.getAttribute('src')
+      // 为overlay添加蒲公英雪花点
+      var initialSpecCount = 5;
+      var totSpecCount = 0;
+      // const dandelionSrc = dandelion.getAttribute('src')
 
-            const intervalId = setInterval(() => {
-                if (totSpecCount < 2000) {
-                    for (var i = 0; i < initialSpecCount; i++) {
-                        const img1 = document.createElement('img')
-                        img1.setAttribute('src', dandelionPic)
-                        img1.classList.add('abs-middle')
-                        img1.classList.add('moveDandelionSpec')
+      const intervalId = setInterval(() => {
+        if (totSpecCount < 2000) {
+          for (var i = 0; i < initialSpecCount; i++) {
+            const img1 = document.createElement('img')
+            img1.setAttribute('src', dandelionPic)
+            img1.classList.add('abs-middle')
+            img1.classList.add('moveDandelionSpec')
 
-                        const size = Math.floor(Math.random() * 81) + 20;
-                        img1.setAttribute('width', `${size}px`);
-                        img1.setAttribute('height', `${size}px`);
-                        console.log(`'height', ${size}px`)
-                        
-                        const base = Math.random()
-                        const basex = Math.floor(base * 81) - 40
-                        const basey = Math.floor(base * 101) - 50
+            const size = Math.floor(Math.random() * 81) + 20;
+            img1.setAttribute('width', `${size}px`);
+            img1.setAttribute('height', `${size}px`);
+            console.log(`'height', ${size}px`)
 
-                        const offsetx = Math.floor(this.normalRand(0, 0.2) * 81)
-                        const offsety = 0
-                        
-                        this.$refs.overlay.appendChild(img1)
-                        img1.style.transform = `translate(calc(-50% - ${basex}vw + ${offsetx}vw), calc(-50% + ${basey}vh + ${offsety}vh))`
-                        console.log(`translate(calc(-50% - ${basex}vw + 80vw)), calc(-50% + ${basey}vh - 100vh))`)
-                    }
+            const base = Math.random()
+            const basex = Math.floor(base * 81) - 40
+            const basey = Math.floor(base * 101) - 50
 
-                    totSpecCount += initialSpecCount;
-                    initialSpecCount += 5;
-                    if (initialSpecCount > 100) {
-                        initialSpecCount = 50
-                    }
-                } else {
-                    clearInterval(intervalId)
-                }
-            }, 200)
+            const offsetx = Math.floor(this.normalRand(0, 0.2) * 81)
+            const offsety = 0
 
-            // 上述动画完成后一段时间页面重定向
-            setTimeout(() => {
-                    window.location.assign('/#/overview/')
-                    clearInterval(intervalId)
-            }, 5000)
+            this.$refs.overlay.appendChild(img1)
+            img1.style.transform = `translate(calc(-50% - ${basex}vw + ${offsetx}vw), calc(-50% + ${basey}vh + ${offsety}vh))`
+            console.log(`translate(calc(-50% - ${basex}vw + 80vw)), calc(-50% + ${basey}vh - 100vh))`)
+          }
+
+          totSpecCount += initialSpecCount;
+          initialSpecCount += 5;
+          if (initialSpecCount > 100) {
+            initialSpecCount = 50
+          }
+        } else {
+          clearInterval(intervalId)
         }
+      }, 200)
+
+      // 上述动画完成后一段时间页面重定向
+      setTimeout(() => {
+        window.location.assign('/#/overview/')
+        clearInterval(intervalId)
+      }, 5000)
     }
+  }
 }
 </script>
 
 <template>
-    <div class="overlay overflow-hidden align-center h-100 d-flex" ref="overlay">
-        <img class="abs-middle" id="buaa" :src="beijingPic" alt="">
-        <span class="abs-middle dandelion-x">
+  <div class="overlay overflow-hidden align-center h-100 d-flex" ref="overlay">
+    <img class="abs-middle" id="buaa" :src="beijingPic" alt="">
+    <span class="abs-middle dandelion-x">
           <v-img class="dandelion-y" :src="teamlogoPic"></v-img>
         </span>
-<!--        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">-->
-        <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
-        <v-container class="d-flex align-center">
-          <v-row> <v-col class="blurred radius text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
-                蒲公英要出发了，请选择一个目的地
-          </v-col> </v-row>
-        </v-container>
-    </div>
+    <!--        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">-->
+    <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
+    <v-container class="d-flex align-center">
+      <v-row> <v-col class="blurred radius text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
+        蒲公英要出发了，请选择一个目的地
+      </v-col> </v-row>
+    </v-container>
+  </div>
 
 </template>
 
@@ -109,50 +109,54 @@ export default {
   height: 100%;
   background-image: v-bind('"url(" + backgroundPic + ")"');
   background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
-  z-index: 0; /* 确保在页面上方 */
+  z-index: 10; /* 确保在页面上方，即保持此值为最大值 */
 }
 
 #buaa {
-    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
-    width: 400px;
-    height: 400px;
-    z-index: 8000;
+  position: absolute;
+  transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+  width: 400px;
+  height: 400px;
+  z-index: 0;
 }
 
 #dandelion-box {
-    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
-    width: 100px;
-    height: 100px;
-    z-index: 8999;
-    //background: #0d47a1;
+  position: absolute;
+  transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+//background: #0d47a1;
 }
 
 #dandelion {
-    transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
-    backdrop-filter: blur(2px);
-    width: 150px;
-    height: 150px;
-    z-index: 9000;
-    //filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+  position: absolute;
+  transform: translate(calc(-50% + 30vw), calc(-50% - 20vh));
+  backdrop-filter: blur(2px);
+  width: 150px;
+  height: 150px;
+  z-index: 3;
+//filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
 }
 
 #zhongyang {
-    transform: translate(calc(-50% - 25vw), calc(-50% + 20vh));
-    width: 600px;
-    height: 600px;
-    z-index: 8000;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
-    transition-duration: 200ms;
+  position: absolute;
+  transform: translate(calc(-50% - 25vw), calc(-50% + 20vh));
+  width: 600px;
+  height: 600px;
+  z-index: 0;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
+  transition-duration: 200ms;
 }
 
 #zhongyang:hover {
-    cursor: pointer;
-    transform: translate(calc(-50% - 25vw), calc(-50% + 20vh)) scale(1.1);
+  cursor: pointer;
+  transform: translate(calc(-50% - 25vw), calc(-50% + 20vh)) scale(1.1);
 }
 
 .moveDandelionCls {
-    animation: moveDandelionAnim 4s 1 forwards;
+  animation: moveDandelionAnim 4s 1 forwards;
 }
 
 @keyframes moveDandelionAnim {
@@ -202,22 +206,23 @@ export default {
 .abs-middle {
   position: absolute;
   top: 50%;
-  left: 50%;  
+  left: 50%;
 }
 
 .dandelion-x {
-    transform: translateX(calc(-50% + 30vw)) translateY(-50%);
-    z-index: 8999;
-    transition: transform 3s linear;
+  position: absolute;
+  transform: translateX(calc(-50% + 30vw)) translateY(-50%);
+  z-index: 5;
+  transition: transform 3s linear;
 }
 
 .dandelion-y {
-    width: 150px;
-    height: 150px;
-    transform: translateY(-20vh);
-    transition: transform 3s cubic-bezier(1,0,1,1);
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
-    backdrop-filter: blur(2px);
+  width: 150px;
+  height: 150px;
+  transform: translateY(-20vh);
+  transition: transform 3s cubic-bezier(1,0,1,1);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+  backdrop-filter: blur(2px);
 }
 
 .dandelion-x.selected {
@@ -229,7 +234,7 @@ export default {
 }
 
 .moveDandelionSpec {
-    animation: DandelionSpecEntrance 1s cubic-bezier(0,0,0,1) 1 forwards;
+  animation: DandelionSpecEntrance 1s cubic-bezier(0,0,0,1) 1 forwards;
 }
 
 @keyframes DandelionSpecEntrance {
