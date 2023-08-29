@@ -15,7 +15,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-tabs centered color="grey-darken-1">
+      <v-tabs centered color="yellow">
         <v-tab link to="/overview">县城特色</v-tab>
         <v-tab link to="/interview">百姓访谈</v-tab>
         <v-tab link to="/us">蒲公英们</v-tab>

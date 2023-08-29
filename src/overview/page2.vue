@@ -1,22 +1,22 @@
 <script setup>
-import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
+import overviewPic from '../assets/overview/zhongyangOverview/zhongyangfromsky.jpg'
 </script>
 
 <script>
-import fungusPic from '../assets/overview/industry/fungus.drawio.png'
-import steelPic from '../assets/overview/industry/steel.drawio.png'
-import vinegarPic from '../assets/overview/industry/vinegar.drawio.png'
-import incubationPic from '../assets/overview/industry/incubation.drawio.png'
+import fungusPic from '../assets/overview/industry/fungus.jpg'
+import steelPic from '../assets/overview/industry/steel.jpg'
+import vinegarPic from '../assets/overview/industry/vinegar.jpg'
+import incubationPic from '../assets/overview/industry/incubation.jpg'
 
 export default {
     name: 'page2',
     data() {
         return {
             items: [
-              {index: 0, title: '中阳黑木耳', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: fungusPic},
-              {index: 1, title: '中钢', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: steelPic},
-              {index: 2, title: '醋', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: vinegarPic},
-              {index: 3, title: '孵化园', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: incubationPic},
+              {index: 0, title: '中阳黑木耳', desc: '作为中阳木耳产业的新兴龙头企业，心言生物科技有限公司在政府的强力支持下，最新建设的木耳生产线已于去年投产，该公司同时经营一亿年产量的菌棒生产以及1000栋规模的大棚种植，利用自动化的生产设备实现高效生产，同时着眼于全产业链的木耳深加工，并注重鱼菜共生的水资源循环利用。希望中阳的木耳产业在政府的扶持下，在心言公司的带领下继续茁壮成长，快速发展。', pic: fungusPic},
+              {index: 1, title: '中钢', desc: '山西中阳钢铁有限公司，坐落于中阳县城北部，始建于1985年，如今已发展成为中阳的第一大企业，年产值150亿元，拥有职工上万名，集采煤、选煤、采矿、选矿、炼铁、炼钢、轧钢、发电于一体，具有庞大的产业规模。厂区内食堂、商店、宿舍等生活设施也一应俱全，具有明显的20世纪大型企业的社会化特征，突出体现了以人为本的企业特色。近年来，中钢与北航进行深度技术合作，研究出了以Q195为代表的一系列高技术钢铁产品。', pic: steelPic},
+              {index: 2, title: '醋', desc: '柏洼古井手工醋庄坐落于泊洼山脚下，董事长王先生传承家族的古法手艺，在酿醋领域已经深耕了三十多年，通过使用小麦、柏叶、松针等不同的原料，开发了松针醋、柏叶醋、高粱醋等高端保健醋、养生醋等不同的商品类型，带领柏洼手工醋走上多元化、高端化、高附加值的发展道路。', pic: vinegarPic},
+              {index: 3, title: '孵化园', desc: '吕梁市北航中汇科技孵化器，为北航与当地政府合作召集、培养新兴产业的基地，内含硕为思集团、华艺民俗文化发展有限公司、山西宸宇服装有限公司等新兴产业公司，分别代表了在传统重工业以外的网络技术、传统文化、轻工业，为中阳县的多元化发展与产业转型提供了道路指引，为这个曾经的贫困县带来了发展潜力与生产活力。', pic: incubationPic},
             ],
 
 
@@ -89,18 +89,18 @@ export default {
 <template>
     <v-col cols="12" class="pa-0 ma-0 industry">
       <v-img :src="overviewPic" cover class="picture">
-        <div class="border-solid-for-test industry">
-          <v-container class="d-flex align-center blurred radius">
+        <div class="industry">
+          <v-container class="d-flex align-center blurred radius border-solid-for-test">
             <v-row>
               <v-col cols="12">
-                <div class="border-solid-for-test pr-10 pt-6">
+                <div class="pr-10 pt-6 text-light-blue">
                   <h2 class="text-end" id="p2">产业</h2>
                 </div>
               </v-col>
 
               <v-col cols="4" class="wide-only">
                 <v-container>
-                  <v-row class="industry-list border-solid-for-test">
+                  <v-row class="industry-list">
                     <v-col cols="12" v-for="item in items">
                         <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(item.index)">
                           <v-card-title class="w-100 text-center">{{ item.title }}</v-card-title>
@@ -111,39 +111,20 @@ export default {
               </v-col>
 
               <v-col cols="8" class="pa-10 wide-only">
-                <div class="border-solid-for-test pic-showcase" v-for="item in items">
+                <div class="pic-showcase" v-for="item in items">
                   <v-img :src="item.pic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">{{ item.title }}</div>
-                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
+                    <div class="pictitle text-light-blue pa-5">{{ item.title }}</div>
+                    <div class="gradient position-absolute h-100 w-100"></div>
+                    <div class="picdesc px-5 pb-5 text-yellow">{{ item.desc }}</div>
                   </v-img>
                 </div>
-              </v-col>
-
-              <v-col cols="12" class="narrow-only">
-                <v-expansion-panels :max="1" variant="popout">
-                  <v-expansion-panel class="before-anim" v-for="item in items">
-                    <v-expansion-panel-title>
-                      {{ item.title }}
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="item.pic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">{{ item.title }}</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
-                        </v-img>
-                      </v-sheet>
-                    </v-expansion-panel-text>
-                  </v-expansion-panel>
-                </v-expansion-panels>
               </v-col>
             </v-row>
           </v-container>
           <v-row>
-            <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-grey-darken-1">
+            <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-yellow-darken-1">
               <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-double</v-icon>
-              <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-outline</v-icon>
             </v-card-text></v-col>
           </v-row>
@@ -159,9 +140,9 @@ export default {
   align-items: center;
 }
 
-/* .border-solid-for-test {
+.border-solid-for-test {
   border: black 3px solid;
-} */
+}
 
 
 .h0w0 {
@@ -269,13 +250,13 @@ h2.anim {
 
 .pic-showcase .picdesc {
   color: black;
-  font-size: 2em;
+  font-size: 1.4em;
   overflow: hidden;
 }
 
 .pic-showcase:hover .picdesc {
   color: white;
-  font-size: 2em;
+  font-size: 1.4em;
   height: 100%;
 }
 
