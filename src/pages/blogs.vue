@@ -17,12 +17,6 @@ export default {
           path: '/blogs/push1'
         },
         {
-          id: 0,
-          title: '创建新的推送页面',
-          content: '如何在本平台中创建新的推送页面',
-          path: '/blogs/push0'
-        },
-        {
           id: 2,
           title: '筑梦中阳 | Day.1 一键开启实践之旅',
           content: '一键开启实践之旅',
@@ -49,6 +43,12 @@ export default {
           content: '寻觅自然风趣 品悟红色精神',
           imgSrc: 'src/assets/push/5-4.png',
           path: '/blogs/push5'
+        },
+        {
+          id: 0,
+          title: '创建新的推送页面',
+          content: '如何在本平台中创建新的推送页面',
+          path: '/blogs/push0'
         },
       ]
     }
