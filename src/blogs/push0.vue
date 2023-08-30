@@ -41,17 +41,21 @@ export default {
               "plaintext是用于显示纯文本的，可以提供的属性包括title(可选), content(字符串，支持html语法)<br><br>" +
               "pic显示一张图片及其可能有的描述，可以提供的属性包括title(可选), content(可选，字符串，支持html语法), imgSrc(图片链接), placedAt(图片放置位置，top或below)<br>" +
               "要引用的img需要放置在public文件夹内，并用imgSrc指明路径。例如下面这个块：<br><br>" +
-              "pics块可以显示多个照片。需要用数组形式给出所有图片的url。"
+              "pics块可以显示多个照片，需要注意，pics的元素均为数组形式，imgSrc为包含多个url的数组，且要保证imSrc、placeAt、content长度相同。"
         },
         {
           type: 'pic',
           title: 'Pic template',
           imgSrc: './final_2.png',
-          placedAt: 'top'
+          placedAt: 'top',
+          content: ''
         },
         {
           type: 'pics',
-          imgSrc: ['./final_2.png', './final_2.png']
+          title: 'Pics template',
+          imgSrc: [['src/assets/final_2.png'], ['src/assets/final_2.png']],
+          content: ['test1', 'test2'],
+          placedAt: ['top', 'below']
         },
         {
           type: 'plaintext',
@@ -88,7 +92,7 @@ export default {
         ></pic>
 
         <pics v-if="content.type === 'pics'"
-             :imgSrc="JSON.stringify(content.imgSrc)"
+             :content="content.content" :title="content.title" :imgSrc="content.imgSrc" :placedAt="content.placedAt"
         ></pics>
       </div>
 

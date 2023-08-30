@@ -30,8 +30,12 @@ const routes = [
     { path: '/interview', component: () => import('./pages/interview.vue') },
     { path: '/us', component: () => import('./pages/aboutus.vue') },
     { path: '/blogs', component: () => import('./pages/blogs.vue') },
-    { path: '/blogs/push1', component: () => import('./blogs/push1/push1.vue') },
+    { path: '/blogs/push1', component: () => import('./blogs/push1.vue') },
     { path: '/blogs/push0', component: () => import('./blogs/push0.vue') },
+    { path: '/blogs/push2', component: () => import('./blogs/push2.vue') },
+    { path: '/blogs/push3', component: () => import('./blogs/push3.vue') },
+    { path: '/blogs/push4', component: () => import('./blogs/push4.vue') },
+    { path: '/blogs/push5', component: () => import('./blogs/push5.vue') },
 ]
 
 const router = VueRouter.createRouter({
