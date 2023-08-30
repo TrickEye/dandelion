@@ -10,6 +10,13 @@ export default {
     return {
       pushes: [
         {
+          id: 0,
+          title: '实践总结',
+          content: '乡村振兴，任重而道远',
+          imgSrc: 'src/assets/overview/zhongyangOverview/zhongyangfromsky.jpg',
+          path: '/blogs/push0'
+        },
+        {
           id: 1,
           title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
           content: '激昂青春！蒲公英乡野航迹实践队启航',
@@ -43,12 +50,6 @@ export default {
           content: '寻觅自然风趣 品悟红色精神',
           imgSrc: 'src/assets/push/5-4.png',
           path: '/blogs/push5'
-        },
-        {
-          id: 0,
-          title: '创建新的推送页面',
-          content: '如何在本平台中创建新的推送页面',
-          path: '/blogs/push0'
         },
       ]
     }
