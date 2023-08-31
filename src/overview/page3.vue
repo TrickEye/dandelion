@@ -93,7 +93,7 @@ export default {
           <v-container class="d-flex align-center blurred radius border-solid-for-test">
             <v-row>
               <v-col cols="12">
-                <div class="pr-10 pt-6">
+                <div class="pr-10 pt-6 text-light-blue">
                   <h2 class="text-end" id="p3">文化</h2>
                 </div>
               </v-col>
