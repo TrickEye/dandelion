@@ -121,7 +121,7 @@ export default {
 }
 
 .pic-container::-webkit-scrollbar {
-  display: none;
+  //display: none;
 }
 
 .pic-container > .v-col {

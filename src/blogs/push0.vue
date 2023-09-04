@@ -7,6 +7,7 @@ export default {
   data() {
     return {
       title: '结语',
+      wechatLink: 'https://mp.weixin.qq.com/s/tWEW9_vceQZf4OUoVc85rQ',
       contents: [
         {
           type: 'plaintext',
@@ -49,6 +50,10 @@ export default {
              :content="content.content" :title="content.title" :imgSrc="content.imgSrc" :placedAt="content.placedAt"
         ></pics>
       </div>
+      <v-card class="pa-3 ma-3">
+        <v-card-title>微信原文链接<a class="float-end" :href="wechatLink" target="_blank"><v-btn flat>阅读</v-btn></a>
+        </v-card-title>
+      </v-card>
     </v-col>
   </v-row>
 </template>
