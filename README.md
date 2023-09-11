@@ -39,7 +39,9 @@ or
 ## Plan
 
 - [x] Basic UI
-- [ ] No later than 7/16/2023. Content preparation
-- [ ] No later than 7/30/2023. Beautify UI
+- [x] No later than 7/30/2023. Beautify UI
+- [x] August 2023, basic animation
+- [ ] **WIP**: 9/11/2023, prep for content
+- [ ] 9/12/2023, content fill by all members and prep for presentation
 
 If you have any suggestions, please let me know.
