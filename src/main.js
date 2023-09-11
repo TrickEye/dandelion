@@ -27,6 +27,7 @@ const routes = [
     { path: '/', component: () => import('./pages/testModule.vue') },
     { path: '/overview', component: () => import('./pages/overview.vue') },
     { path: '/overview/fungus', component: () => import('./overview/fungus.vue') },
+    { path: '/overview/vinegar', component: () => import('./overview/vinegar.vue') },
     { path: '/interview', component: () => import('./pages/interview.vue') },
     { path: '/interview/leidaye', component: () => import('./interview/rural/leidaye.vue') },
     { path: '/interview/lidaniang', component: () => import('./interview/rural/lidaniang.vue') },
