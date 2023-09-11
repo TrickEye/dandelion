@@ -10,6 +10,13 @@ export default {
     return {
       pushes: [
         {
+          id: 0,
+          title: '实践总结',
+          content: '乡村振兴，任重而道远',
+          imgSrc: 'src/assets/overview/zhongyangOverview/zhongyangfromsky.jpg',
+          path: '/blogs/push0'
+        },
+        {
           id: 1,
           title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
           content: '激昂青春！蒲公英乡野航迹实践队启航',
@@ -17,45 +24,32 @@ export default {
           path: '/blogs/push1'
         },
         {
-          id: 0,
-          title: '创建新的推送页面',
-          content: '如何在本平台中创建新的推送页面',
-          path: '/blogs/push0'
-        },
-        {
           id: 2,
-          title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
-          content: '激昂青春！蒲公英乡野航迹实践队启航',
-          imgSrc: './final_2.png',
-          path: '/blogs/push1'
+          title: '筑梦中阳 | Day.1 一键开启实践之旅',
+          content: '一键开启实践之旅',
+          imgSrc: 'src/assets/push/2-0.jpg',
+          path: '/blogs/push2'
         },
         {
           id: 3,
-          title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
-          content: '激昂青春！蒲公英乡野航迹实践队启航',
-          imgSrc: './final_2.png',
-          path: '/blogs/push1'
+          title: '筑梦中阳 | Day.2 剪中阳之影，访阳坡之兴',
+          content: '剪中阳之影，访阳坡之兴',
+          imgSrc: 'src/assets/push/3-6.png',
+          path: '/blogs/push3'
         },
         {
           id: 4,
-          title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
-          content: '激昂青春！蒲公英乡野航迹实践队启航',
-          imgSrc: './final_2.png',
-          path: '/blogs/push1'
+          title: '筑梦中阳 | Day.3 探中阳发展篇章 访民生实地调研',
+          content: '探中阳发展篇章 访民生实地调研',
+          imgSrc: 'src/assets/push/4-6.jpg',
+          path: '/blogs/push4'
         },
         {
           id: 5,
-          title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
-          content: '激昂青春！蒲公英乡野航迹实践队启航',
-          imgSrc: './final_2.png',
-          path: '/blogs/push1'
-        },
-        {
-          id: 6,
-          title: '扬帆起航 | 蒲公英乡野航迹实践队简介',
-          content: '激昂青春！蒲公英乡野航迹实践队启航',
-          imgSrc: './final_2.png',
-          path: '/blogs/push1'
+          title: '筑梦中阳 | Day.4 寻觅自然风趣 品悟红色精神',
+          content: '寻觅自然风趣 品悟红色精神',
+          imgSrc: 'src/assets/push/5-4.png',
+          path: '/blogs/push5'
         },
       ]
     }

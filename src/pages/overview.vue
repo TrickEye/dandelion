@@ -1,5 +1,6 @@
 <script setup>
-import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
+import overviewPic from '../assets/overview/zhongyangOverview/zhongyangfromsky.jpg'
+import overviewPic1 from '../assets/overview/zhongyangOverview/zhongyangcity.jpg'
 import fungusPic from '../assets/overview/industry/fungus.drawio.png'
 </script>
 
@@ -55,47 +56,42 @@ export default {
   <v-row class="pic-container pa-0 ma-0">
     <v-col cols="12" class="pa-0 ma-0">
       <v-img :src="overviewPic" cover class="picture">
-        <div class="border-solid-for-test">
+        <div>
           <v-container>
-            <v-row class="d-flex align-center blurred radius">
-              <v-col cols="12" lg="6" xl="6" class="border-solid-for-test">
-                <div class="title border-solid-for-test">
-                  <h1>中阳</h1>
+            <v-row class="d-flex align-center blurred radius border-solid-for-test">
+              <v-col cols="12" lg="6" xl="6" class="title text-center text-yellow">
+                <div>
+                  <h1>中阳县</h1>
                 </div>
+                <v-sheet class="bg-transparent text-center text-shades-white">
+                  <v-btn variant="plain" link href="http://www.sxzhongyang.gov.cn/">中阳县人民政府官网</v-btn>
+                </v-sheet>
               </v-col>
-              <v-col cols="12" lg="6" xl="6" class="border-solid-for-test">                
+              <v-col cols="12" lg="6" xl="6">
                 <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center" ref="c1">
                   <div>
-                    <v-card-text>中阳位于山西省吕梁市南部。然后有一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字，一些说明文字。</v-card-text>
+                    <v-card-text>中阳县位于吕梁山脉中段西麓，面积<strong>1441.4平方公里</strong>，常住人口在2021年末为<strong>136925人</strong>。中阳县气候属暖温带亚干旱区大陆性季风气候。截至2021年10月，中阳县辖<strong>5个镇、1个乡</strong>。
+                    </v-card-text>
                   </div>
                 </v-card>
                 
                 <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center">
-                  <v-card-text class="d-flex align-center border-solid-for-test">
-                    <div class="border-solid-for-test number-emphasis">1441.4平方公里</div>
-                    <div>截至2022年行政区域面积1441.4平方公里，辖5镇1乡89个行政村，很多字很多字很多字很多字很多字很多字很多字很多字很多字</div>
+                  <v-card-text class="d-flex align-center">
+                    <div>由于地处山脉，中阳县境内有许多自然风光与人造景观。县城东5公里处有<strong>柏洼山</strong>，海拔1250米，集柏海松林、道教信仰、湖泊溶洞于一体，山中有<strong>龙泉关</strong>，至少有近千年历史，内存大量道教遗迹</div>
                   </v-card-text>
                 </v-card>
                 
                 <v-card class="ma-2 mx-auto card overflow-hidden d-flex align-center">
-                  <v-card-text class="d-flex align-center border-solid-for-test">
-                    <div class="border-solid-for-test number-emphasis">从 2023年7月2日<br/>到 2023年7月7日</div>
-                    <div>蒲公英实践队一行人来到中阳县开展社会实践</div>
+                  <v-card-text class="d-flex align-center">
+                    <div>中阳县作为革命老区，是<strong>山西省第一个县级苏维埃政权所在地</strong>，革命思想在中阳的传播可以追溯至新民主主义革命时期。聂荣臻等曾在中阳境内进行<strong>关上战斗</strong>大败阎锡山，抗日时期中阳县<strong>牺牲救国同盟会</strong>也发挥了重大作用。</div>
                   </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
+
             <v-row>
-              <v-col cols="12" class="border-solid-for-test blurred radius mt-5 d-flex justify-center">
-                <v-sheet class="bg-transparent d-flex justify-space-between" width="90%">
-                  <v-btn variant="plain" link href="http://www.sxzhongyang.gov.cn/">中阳县人民政府</v-btn>
-                </v-sheet>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-grey-darken-1">
+              <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-yellow-darken-1">
                 <v-icon>mdi-circle-double</v-icon>
-                <v-icon>mdi-circle-outline</v-icon>
                 <v-icon>mdi-circle-outline</v-icon>
                 <v-icon>mdi-circle-outline</v-icon>
               </v-card-text></v-col>
@@ -104,7 +100,7 @@ export default {
         </div>
       </v-img>
     </v-col>
-    
+
     <page2/>
 
     <page3/>
@@ -125,7 +121,7 @@ export default {
 }
 
 .pic-container::-webkit-scrollbar {
-  display: none;
+  //display: none;
 }
 
 .pic-container > .v-col {
@@ -143,7 +139,9 @@ export default {
 
   height: v-bind('getBreakpoint()');
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 @keyframes title-entry {
@@ -163,9 +161,9 @@ export default {
   }
 }
 
-/* .border-solid-for-test {
+.border-solid-for-test {
   border: black 3px solid;
-} */
+}
 
 .number-emphasis {
   font-size: 1.5rem;

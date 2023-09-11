@@ -1,22 +1,22 @@
 <script setup>
-import overviewPic from '../assets/overview/zhongyangOverview/zhongyangOverview.drawio.png'
+import overviewPic from '../assets/overview/zhongyangOverview/zhongyangfromsky.jpg'
 </script>
 
 <script>
-import fungusPic from '../assets/overview/industry/fungus.drawio.png'
-import steelPic from '../assets/overview/industry/steel.drawio.png'
-import vinegarPic from '../assets/overview/industry/vinegar.drawio.png'
-import incubationPic from '../assets/overview/industry/incubation.drawio.png'
+import paper from '../assets/overview/art/paper.jpg'
+import building from '../assets/overview/art/building.jpg'
+import noodles from '../assets/overview/art/noodles.jpg'
+import countryside from '../assets/overview/art/countryside.jpg'
 
 export default {
     name: 'page3',
     data() {
         return {
             items: [
-              {index: 0, title: '中阳黑木耳', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: fungusPic},
-              {index: 1, title: '中钢', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: steelPic},
-              {index: 2, title: '醋', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: vinegarPic},
-              {index: 3, title: '孵化园', desc: '介绍内容介绍内容，您猜怎么着，我这介绍有好多好多好多，一排是别想装下了哈哈哈哈哈哈哈哈哈哈哈', pic: incubationPic},
+              {index: 0, title: '非遗文化', desc: '作为中阳非遗文化的代表，中阳剪纸与当地传统民俗文化血肉相连。它以中阳当地民俗信仰、岁时节令、人生礼仪、神话传说为主要表现内容，多以红纸剪成，体现着喜庆、热烈的民俗气氛。中阳剪纸作为第一批国家级非遗以及世界遗产，近年来受到政府广泛重视，以传承人武小汾为代表的的中阳剪纸正在蓬勃发展并带动当地就业。中阳县的非遗项目还有中阳刺绣、九曲灯会、中阳弹唱等。', pic: paper},
+              {index: 1, title: '窑洞', desc: '在阳坡村，仍然可以见到存在已久的土窑洞。窑洞是山西省的传统民居之一，一般修在朝南的山坡上，向阳，背靠山，面朝开阔地带，少有树木遮挡，十分适宜居住生活。窑洞沉积了古老的黄土地深层文化，广大人民在劳动中创造了窑洞艺术，小小窑洞浓缩了黄土地的别样风情。在旧窑洞的不远处便是新建的现代化建筑，值得一提的是，即使是现代化的建筑，依然是傍山而建，门窗拱形。可以说，窑洞在当地人民的心里有着举足轻重的地位。', pic: building},
+              {index: 2, title: '移风易俗', desc: '无论是县城还是村镇，总能见到这样的标语——“婚事新办、丧事简办、余事不办”。近年来中阳政府在持续巩固提升脱贫攻坚成果的同时，将乡村振兴与文明建设进行有效衔接，大力宣传婚事新办、丧事简办、余事不办的良好社会风气，全面促进移风易俗工作制度化、规范化、常态化，乡村社会文明程度不断提升，摒弃陈规陋习、共建文明风尚的氛围日益浓厚。', pic: countryside},
+              {index: 3, title: '美食', desc: '中阳县城的大街小巷，充满了各种经营当地美食的饭馆。柏籽羊肉是山西省的名特产品之一，肉质密实，油色洁白，味含柏香，不腥不腻，因放养山林食柏籽、喝柏水而得名，产区局限在中阳侧柏山区范围内。麻豆腐是中阳县的另一道传统美食，是用豆腐皮包裹猪肉馅和各种蔬菜，再用麻油和辣椒油炸而成，口感酥脆，味道独特。莜面为当地面试的一大代表，泛指用莜面制成的各种面食，有面条状、卷筒状、短条状等多种吃法，各有风味。', pic: noodles},
             ],
 
 
@@ -89,18 +89,18 @@ export default {
 <template>
     <v-col cols="12" class="pa-0 ma-0 culture">
       <v-img :src="overviewPic" cover class="picture">
-        <div class="border-solid-for-test culture">
-          <v-container class="d-flex align-center blurred radius">
+        <div class="culture">
+          <v-container class="d-flex align-center blurred radius border-solid-for-test">
             <v-row>
               <v-col cols="12">
-                <div class="border-solid-for-test pr-10 pt-6">
+                <div class="pr-10 pt-6 text-light-blue">
                   <h2 class="text-end" id="p3">文化</h2>
                 </div>
               </v-col>
 
               <v-col cols="4" class="wide-only">
                 <v-container>
-                  <v-row class="culture-list border-solid-for-test">
+                  <v-row class="culture-list">
                     <v-col cols="12" v-for="item in items">
                         <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center" :ripple="false" @click="() => switchChecked(item.index)">
                           <v-card-title class="w-100 text-center">{{ item.title }}</v-card-title>
@@ -111,40 +111,21 @@ export default {
               </v-col>
 
               <v-col cols="8" class="pa-10 wide-only">
-                <div class="border-solid-for-test pic-showcase" v-for="item in items">
+                <div class="pic-showcase" v-for="item in items">
                   <v-img :src="item.pic" cover class="align-end h-100 radius">
-                    <div class="pictitle font-weight-black pa-5">{{ item.title }}</div>
-                    <div class="gradient position-absolute border-solid-for-test h-100 w-100"></div>
-                    <div class="picdesc border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
+                    <div class="pictitle text-light-blue pa-5">{{ item.title }}</div>
+                    <div class="gradient position-absolute h-100 w-100"></div>
+                    <div class="picdesc px-5 pb-5 text-yellow">{{ item.desc }}</div>
                   </v-img>
                 </div>
-              </v-col>
-
-              <v-col cols="12" class="narrow-only">
-                <v-expansion-panels :max="1" variant="popout">
-                  <v-expansion-panel class="before-anim" v-for="item in items">
-                    <v-expansion-panel-title>
-                      {{ item.title }}
-                    </v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                      <v-sheet class="border-solid-for-test" style="height: 40vh;">
-                        <v-img :src="item.pic" cover class="align-end h-100 radius">
-                          <div class="text-h2 font-weight-black pa-5">{{ item.title }}</div>
-                          <div class="text-h5 border-solid-for-test px-5 pb-5">{{ item.desc }}</div>
-                        </v-img>
-                      </v-sheet>
-                    </v-expansion-panel-text>
-                  </v-expansion-panel>
-                </v-expansion-panels>
               </v-col>
             </v-row>
           </v-container>
           <v-row>
-            <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-grey-darken-1">
+            <v-col cols="12" class="d-flex align-center"><v-card-text class="text-center text-yellow-darken-1">
               <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-double</v-icon>
-              <v-icon>mdi-circle-outline</v-icon>
             </v-card-text></v-col>
           </v-row>
         </div>
@@ -159,9 +140,9 @@ export default {
   align-items: center;
 }
 
-/* .border-solid-for-test {
+.border-solid-for-test {
   border: black 3px solid;
-} */
+}
 
 
 .h0w0 {
@@ -269,13 +250,13 @@ h2.anim {
 
 .pic-showcase .picdesc {
   color: black;
-  font-size: 2em;
+  font-size: 1.4em;
   overflow: hidden;
 }
 
 .pic-showcase:hover .picdesc {
   color: white;
-  font-size: 2em;
+  font-size: 1.4em;
   height: 100%;
 }
 

@@ -6,60 +6,19 @@ export default {
   name: 'push0',
   data() {
     return {
-      title: '创建新的推送页面',
-      wechatLink: '',
+      title: '结语',
+      wechatLink: 'https://mp.weixin.qq.com/s/tWEW9_vceQZf4OUoVc85rQ',
       contents: [
         {
           type: 'plaintext',
-          title: null,
+          title: '乡村振兴，任重而道远',
           content:
-              "本文旨在给出一个模板来介绍如何在本项目中创建新的推送页面。"
-        },
-        {
-          type: 'plaintext',
-          title: 'Step 1.',
-          content:
-              "在 src\\blogs\\ 中创建一个新的 .vue 文件，例如 push2.vue。</br>" +
-              "新文件的内容可参考此文件（<code>/src/blogs/push0.vue</code>），" +
-              "不过需要更改<code>export default -> name</code>属性。"
-        },
-        {
-          type: 'plaintext',
-          title: 'Step 2.',
-          content:
-              "关注<code>data()</code>中的title，wechatLink, contents等属性，他们决定了页面的内容。<br><br>" +
-              "title是全文标题，会被转换成h1标签。<br>" +
-              "wechatLink是本文对应的微信链接（如果有的话），将会转换成文章底部的一个小栏。<br>" +
-              "contents是文章的正文内容，也就是这个块的内容。"
-        },
-        {
-          type: 'plaintext',
-          title: 'Step 3. Contents',
-          content:
-              "Contents属性是一些元素构成的数组。每个元素具有一些属性，会被翻译为一个card。<br><br>" +
-              "每个content元素需要指明type属性，目前支持的类型：plaintext和pic。<br>" +
-              "plaintext是用于显示纯文本的，可以提供的属性包括title(可选), content(字符串，支持html语法)<br><br>" +
-              "pic显示一张图片及其可能有的描述，可以提供的属性包括title(可选), content(可选，字符串，支持html语法), imgSrc(图片链接), placedAt(图片放置位置，top或below)<br>" +
-              "要引用的img需要放置在public文件夹内，并用imgSrc指明路径。例如下面这个块：<br><br>" +
-              "pics块可以显示多个照片。需要用数组形式给出所有图片的url。"
-        },
-        {
-          type: 'pic',
-          title: 'Pic template',
-          imgSrc: './final_2.png',
-          placedAt: 'top'
-        },
-        {
-          type: 'pics',
-          imgSrc: ['./final_2.png', './final_2.png']
-        },
-        {
-          type: 'plaintext',
-          title: 'Step 4.',
-          content:
-              "写好这个页面之后，需要做的事情包括：在希望进入这个页面的位置准备一个入口（参考blogs.vue），在main.js引入这个页面的路由（参考main.js）<br>" +
-              "使用npm run dev运行项目，并查看项目。<br><br>" +
-              "声明：现在的效果肯定是很丑的，因为目前只是准备内容。美化工作会很快展开，别急。"
+              "——在这次社会实践活动中，我们以乡村振兴调研为主题，调研了山西省中阳县文化、教育、产业等方面，同时深入乡间，访谈了不同年龄、不同职业背景和不同家庭背景的当地居民，探寻他们的生活变化和乡村振兴成果。<br>" +
+              "——我们看到了乡村振兴带来的诸多积极变化。首先，基础设施建设大幅提升了县城与乡村的交通、通信和生活条件。在道路条件优化后，中阳县发挥当地资源优势，将煤炭、钢铁等材料运往外地进行出售。这些资源企业是当地的利税大户。其次，农业现代化取得进展，农民们普遍采用现代农牧业技术和管理方法，提高了农产品产量和质量，打造心言木耳、柏籽羊等当地特色农产品品牌，配套精加工生产链，有助于实现农业的可持续发展。再者，神疙瘩村兴办摩托车赛等例子也初现乡村旅游的曙光。乡村旅游助力乡村振兴，可以为当地居民创造额外的收入和就业机会，同时也改善了乡村的自然与生活。<br>" +
+              "——然而，我们也看到乡村振兴面临一些挑战。教育和医疗资源的不均衡仍然存在，阳坡村居民目前还无法享受到优质的教育和医疗服务。同时，年轻人大规模外出务工也导致乡村人口老龄化、乡村空心化等问题日益突出。解决这些问题需要政府和社会各界共同努力，需要加大对乡村教育、医疗和人才引进的支持力度。<br>" +
+              "——总的来说，乡村振兴是一个复杂而长期的过程，需要全社会的参与和支持。通过这次实践调研，我们更深入地了解了乡村振兴的现状和成果，并认识到其中的困难和问题。希望我们的报告有助于引起更多人关注乡村，促进乡村振兴工作的持续推进，为乡村居民创造更好的生活条件和发展机会。<br>" +
+              "——同时，我们也提出了如下建议。首先，加强乡村基础设施建设，提升交通、水电和网络等基础设施的覆盖和质量，让村民们享受更便利的交通出行服务和更优质的电信服务。其次，加大对农业科技的支持，提高农业生产效率和产品质量，打造特色农产品品牌。此外，应当加强教育和医疗资源的配置，确保乡村居民能够公平享受基本公共服务，让百姓摆脱贫穷思维模式，发挥主动性，从根本上实现乡村振兴。最后，积极推动乡村产业结构调整和创新创业，优化中阳的经济结构，实现从资源型经济为主导到科技型经济为主导的转变，缩小中阳钢铁员工与其他员工的收入差距，为年轻人提供更多就业和发展机会，避免人口大规模外出务工导致的问题。<br>" +
+              "——通过这次社会实践活动，我们在理论学习之外亲身感受到了乡村振兴的动力和潜力。希望我们的报告能够对乡村振兴工作的推进和相关政策的制定有所启发，为实现全面建设社会主义现代化国家的目标贡献一份力量。"
         }
       ]
     }
@@ -88,10 +47,9 @@ export default {
         ></pic>
 
         <pics v-if="content.type === 'pics'"
-             :imgSrc="JSON.stringify(content.imgSrc)"
+             :content="content.content" :title="content.title" :imgSrc="content.imgSrc" :placedAt="content.placedAt"
         ></pics>
       </div>
-
       <v-card class="pa-3 ma-3">
         <v-card-title>微信原文链接<a class="float-end" :href="wechatLink" target="_blank"><v-btn flat>阅读</v-btn></a>
         </v-card-title>
