@@ -7,11 +7,12 @@ import fungusPic from '../assets/overview/industry/fungus.drawio.png'
 <script>
 import page2 from '../overview/page2.vue'
 import page3 from '../overview/page3.vue'
+import page4 from '../overview/page4.vue'
 
 export default {
   name: 'overview',
   components: {
-    page2, page3
+    page2, page3, page4
   },
   data() {
     return {
@@ -94,6 +95,7 @@ export default {
                 <v-icon>mdi-circle-double</v-icon>
                 <v-icon>mdi-circle-outline</v-icon>
                 <v-icon>mdi-circle-outline</v-icon>
+                <v-icon>mdi-circle-outline</v-icon>
               </v-card-text></v-col>
             </v-row>
           </v-container>
@@ -104,6 +106,8 @@ export default {
     <page2/>
 
     <page3/>
+
+    <page4/>
   </v-row>
 </template>
 
@@ -121,7 +125,7 @@ export default {
 }
 
 .pic-container::-webkit-scrollbar {
-  //display: none;
+  display: none;
 }
 
 .pic-container > .v-col {

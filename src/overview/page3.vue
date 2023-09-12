@@ -126,6 +126,7 @@ export default {
               <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-outline</v-icon>
               <v-icon>mdi-circle-double</v-icon>
+              <v-icon>mdi-circle-outline</v-icon>
             </v-card-text></v-col>
           </v-row>
         </div>
