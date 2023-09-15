@@ -2,6 +2,8 @@
 
 蒲公英乡野航迹实践队实践成果展示网站
 
+预览版 https://gentle-mushroom-0ee7e2610.3.azurestaticapps.net/#/
+
 ## Based on: Vue 3 + Vite
 
 > This project is frontend only.

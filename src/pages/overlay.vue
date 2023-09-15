@@ -108,6 +108,7 @@ export default {
   width: 100%;
   height: 100%;
   background-image: v-bind('"url(" + backgroundPic + ")"');
+  background-size: cover;
   background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
   z-index: 10; /* 确保在页面上方，即保持此值为最大值 */
 }
