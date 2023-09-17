@@ -73,7 +73,7 @@ export default {
 
       // 上述动画完成后一段时间页面重定向
       setTimeout(() => {
-        window.location.assign('/#/overview/')
+        window.location.assign('overview/')
         clearInterval(intervalId)
       }, 5000)
     }
