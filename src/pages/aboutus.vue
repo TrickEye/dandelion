@@ -31,14 +31,14 @@ import YinXinping from '../assets/aboutus/YinXinping.jpeg'
             intro: '来自北京的高世骏，喜欢打游戏'
           }, {
             id: 1,
-            name: '杜金洋',
+            name: '杜金阳',
             pic: DuJinyang,
             intro: "热爱生活，元气满满的阳光小子"
           }, {
             id: 2,
             name: '黄钰',
             pic: HuangYu,
-            intro: 'todo'
+            intro: '大家好，我是计算机学院2021级的黄钰，很高兴可以成为实践队的一员，和大家一起为乡村振兴做贡献。'
           }, {
             id: 3,
             name: '于洋',

@@ -15,6 +15,11 @@ import teamlogoPic from '../assets/temp/teamlogo.png'
 
 export default {
   name: 'overlay',
+  data() {
+    return {
+      displayTip: true,
+    }
+  },
   methods: {
     normalRand(mean, variance) {
       let u1 = 0, u2 = 0;
@@ -24,6 +29,8 @@ export default {
       return z0 * Math.sqrt(variance) + mean;
     },
     moveDandelion() {
+      this.displayTip = false;
+      document.querySelector('img.tip').style.opacity = 0;
       // const dandelion = this.$refs.dandelion;
 
       // 设置CSS动画
@@ -91,9 +98,14 @@ export default {
     <!--        <img class="abs-middle bg-transparent" id="dandelion" ref="dandelion" :src="teamlogoPic" alt="">-->
     <img class="abs-middle" id="zhongyang" :src="zhongYangPic" @click="moveDandelion" alt="">
     <v-container class="d-flex align-center">
-      <v-row> <v-col class="blurred radius text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
-        蒲公英要出发了，请选择一个目的地
-      </v-col> </v-row>
+      <v-row>
+        <v-col class="text-center tip" cols="12" md="8" offset-md="2" lg="6" offset-lg="3" xl="6" offset-xl="3" xxl="6" offset-xxl="3">
+<!--        蒲公英要出发了，请选择一个目的地-->
+          <transition name="fade" :appear="true" class="tip">
+            <img src="../assets/temp/message.png" >
+          </transition>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 
@@ -185,11 +197,20 @@ export default {
 
 .tip {
   opacity: 0;
-  width: 0;
+  height: 400px;
   overflow: hidden;
   font-size: 1.5rem;
   font-weight: 500;
-  animation: tip-entrance 1s cubic-bezier(0,0,0,1) 1 2s forwards;
+  animation: tip-entrance 1s cubic-bezier(0,0,0,1) 1 0.5s forwards;
+  transition-duration: 2s;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+
+.fade-enter-to, .fade-leave-to {
+  opacity: 0;
 }
 
 @keyframes tip-entrance {
