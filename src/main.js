@@ -1,3 +1,5 @@
+const base = '';
+
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
@@ -55,7 +57,7 @@ const routes = [
 ]
 
 const router = VueRouter.createRouter({
-    history: VueRouter.createWebHistory(),
+    history: VueRouter.createWebHistory(base),
     routes,
 })
 
