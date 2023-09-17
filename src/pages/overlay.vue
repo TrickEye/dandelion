@@ -44,7 +44,7 @@ export default {
             img1.classList.add('abs-middle')
             img1.classList.add('moveDandelionSpec')
 
-            const size = Math.floor(Math.random() * 321) + 80;
+            const size = Math.floor(Math.random() * 121) + 40;
             img1.setAttribute('width', `${size}`);
             img1.setAttribute('height', `${size}`);
             console.log(`'height', ${size}px`)
