@@ -37,16 +37,16 @@ export default {
       // const dandelionSrc = dandelion.getAttribute('src')
 
       const intervalId = setInterval(() => {
-        if (totSpecCount < 2000) {
+        if (totSpecCount < 1000) {
           for (var i = 0; i < initialSpecCount; i++) {
             const img1 = document.createElement('img')
             img1.setAttribute('src', dandelionPic)
             img1.classList.add('abs-middle')
             img1.classList.add('moveDandelionSpec')
 
-            const size = Math.floor(Math.random() * 81) + 20;
-            img1.setAttribute('width', `${size}px`);
-            img1.setAttribute('height', `${size}px`);
+            const size = Math.floor(Math.random() * 321) + 80;
+            img1.setAttribute('width', `${size}`);
+            img1.setAttribute('height', `${size}`);
             console.log(`'height', ${size}px`)
 
             const base = Math.random()
@@ -63,8 +63,8 @@ export default {
 
           totSpecCount += initialSpecCount;
           initialSpecCount += 5;
-          if (initialSpecCount > 100) {
-            initialSpecCount = 50
+          if (initialSpecCount > 40) {
+            initialSpecCount = 25
           }
         } else {
           clearInterval(intervalId)
@@ -235,7 +235,7 @@ export default {
 }
 
 .moveDandelionSpec {
-  animation: DandelionSpecEntrance 1s cubic-bezier(0,0,0,1) 1 forwards;
+  animation: DandelionSpecEntrance 3s cubic-bezier(.69,.2,.84,.51) 1 forwards;
 }
 
 @keyframes DandelionSpecEntrance {
@@ -244,10 +244,13 @@ export default {
     margin-left: 50vw;
     margin-top: 30vh;
   }
+  20% {
+    opacity: 100%;
+  }
   to {
     opacity: 100%;
-    margin-left: 0;
-    margin-top: 0;
+    margin-left: -100vw;
+    margin-top: -60vh;
   }
 }
 </style>

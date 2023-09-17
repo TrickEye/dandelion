@@ -4,6 +4,8 @@
 
 预览版 https://gentle-mushroom-0ee7e2610.3.azurestaticapps.net/#/
 
+预览版 https://trickeye.github.io/dandelion/
+
 ## Based on: Vue 3 + Vite
 
 > This project is frontend only.
