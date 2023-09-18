@@ -113,7 +113,11 @@ export default {
               <v-col cols="8" class="pa-10 wide-only">
                 <div class="pic-showcase" v-for="item in items">
                   <v-img :src="item.pic" cover class="align-end h-100 radius">
-                    <div class="pictitle text-light-blue pa-5">{{ item.title }} <span class="float-right"> <v-btn class="font-weight-black text-h4" variant="plain" height="3em" :href="item.link">阅读</v-btn> </span></div>
+                    <div class="pictitle text-light-blue pa-5">{{ item.title }}
+                      <span class="float-right">
+                        <router-link :to="item.link"><v-btn class="font-weight-black text-h4" variant="plain" height="3em" :href="item.link">阅读</v-btn></router-link>
+                      </span>
+                    </div>
                     <div class="gradient position-absolute h-100 w-100"></div>
                     <div class="picdesc px-5 pb-5 text-yellow">{{ item.desc }}</div>
                   </v-img>
