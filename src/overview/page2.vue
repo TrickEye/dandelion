@@ -115,7 +115,7 @@ export default {
                   <v-img :src="item.pic" cover class="align-end h-100 radius">
                     <div class="pictitle text-light-blue pa-5">{{ item.title }}
                       <span class="float-right">
-                        <router-link :to="item.link"><v-btn class="font-weight-black text-h4" variant="plain" height="3em" :href="item.link">阅读</v-btn></router-link>
+                        <router-link :to="item.link"><v-btn class="font-weight-black text-h4" variant="plain" height="3em" link :to="item.link">阅读</v-btn></router-link>
                       </span>
                     </div>
                     <div class="gradient position-absolute h-100 w-100"></div>
