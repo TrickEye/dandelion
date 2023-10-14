@@ -18,6 +18,7 @@
       <v-tabs centered color="yellow">
         <v-tab link to="../overview/">县城特色</v-tab>
         <v-tab link to="../interview/">百姓访谈</v-tab>
+        <v-tab link to="../conclusion/">实践感受</v-tab>
         <v-tab link to="../us/">蒲公英们</v-tab>
         <v-tab link to="../blogs/">杂谈</v-tab>
       </v-tabs>

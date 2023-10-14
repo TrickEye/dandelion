@@ -46,6 +46,7 @@ const routes = [
     { path: '/interview/shop', component: () => import('./interview/urban/shop.vue') },
     { path: '/interview/secretary', component: () => import('./interview/urban/secretary.vue') },
     { path: '/interview/summary', component: () => import('./interview/interSummary.vue') },
+    { path: '/conclusion', component: () => import('./pages/conclusion.vue')},
     { path: '/us', component: () => import('./pages/aboutus.vue') },
     { path: '/blogs', component: () => import('./pages/blogs.vue') },
     { path: '/blogs/push1', component: () => import('./blogs/push1.vue') },
