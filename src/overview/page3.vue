@@ -245,12 +245,8 @@ h2.anim {
 
 .pic-showcase .pictitle {
   color: black;
-  font-size: 3.75em;
-}
-
-.pic-showcase:hover .pictitle {
-  color: white;
-  font-size: 4.5em;
+  font-size: 3.5em;
+  font-weight: bold;
 }
 
 .pic-showcase .picdesc {

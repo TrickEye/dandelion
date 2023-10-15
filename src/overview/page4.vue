@@ -102,7 +102,7 @@ export default {
               <v-container>
                 <v-row class="history-list">
                   <v-col cols="12" v-for="item in items">
-                    <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center my-10" :ripple="false" @click="() => switchChecked(item.index)">
+                    <v-card class="bg-indigo mx-auto h0w0 shrink-on-hover d-flex align-center my-5" :ripple="false" @click="() => switchChecked(item.index)">
                       <v-card-title class="w-100 text-center">{{ item.title }}</v-card-title>
                     </v-card>
                   </v-col>
@@ -245,13 +245,10 @@ h2.anim {
 
 .pic-showcase .pictitle {
   color: black;
-  font-size: 3.75em;
+  font-size: 3.5em;
+  font-weight: bold;
 }
 
-.pic-showcase:hover .pictitle {
-  color: white;
-  font-size: 4.5em;
-}
 
 .pic-showcase .picdesc {
   color: black;
