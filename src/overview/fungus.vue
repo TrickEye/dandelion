@@ -1,3 +1,7 @@
+<script setup>
+import fungus1 from '../assets/selected-photos/fungus-1.jpg'
+</script>
+
 <script>
 export default {
   name: 'fungus',
@@ -20,6 +24,7 @@ export default {
  <br> 注菌。在灭菌生产车间中，由自动化生产线和工作人员合作填充海绵并植入培育的菌种原液，“良菌瞬间注入，此棒已赋生命”。
  <br> 培养。注菌后的菌棒会在阴凉潮湿处继续培养约49日，随后即可挂在大棚的种植架上投入生产。
  <br> 种植。每个大棚可容纳两万支菌棒，黑木耳将在大棚中茁壮成长，经过采摘晾晒后包装上市。
+          <img :src="fungus1" alt="" style="width: 100%;">
  <br> 在相关技术人员的介绍中，实践队了解到了一些数字：
  <br> 1亿棒：心言木耳每年优质菌棒产量。
  <br> 2.04元：心言木耳生产的每个菌棒出售价格。
