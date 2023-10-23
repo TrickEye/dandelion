@@ -1,5 +1,5 @@
 <script setup>
-import incubation from '../assets/selected-photos/incubation.jpg'
+import incubation from '../assets/selected-photos/incubator.jpg'
 </script>
 
 <script>
