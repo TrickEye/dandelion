@@ -1,5 +1,5 @@
 <script setup>
-import fungus1 from '../assets/selected-photos/fungus-1.jpg'
+import fungus1 from '../assets/selected-photos/fungus1.jpg'
 </script>
 
 <script>
